@@ -1,0 +1,118 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+1 VERSIONINFO
+ FILEVERSION 16,0,0,0
+ PRODUCTVERSION 16,0,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "Mike Swanson"
+            VALUE "Copyright", "Copyright 2010-2013 Mike Swanson. All rights reserved."
+            VALUE "FileDescription", "Ai->Canvas Export Plug-In"
+            VALUE "FileVersion", "16.0"
+            VALUE "InternalName", "Ai->Canvas"
+            VALUE "LegalCopyright", "Copyright 2010-2013 Mike Swanson. All rights reserved."
+            VALUE "OriginalFilename", "Ai2Canvas.aip"
+            VALUE "ProductName", "Ai->Canvas"
+            VALUE "ProductVersion", "1.2"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// PIPL
+//
+
+16000 PIPL 
+BEGIN
+    0x0001, 0x0000, 0x0000, 0x0004, 0x0000, 0x4245, 0x4144, 0x6e64, 0x6b69, 
+    0x0000, 0x0000, 0x0004, 0x0000, 0x4541, 0x5350, 0x4245, 0x4144, 0x7273, 
+    0x6976, 0x0000, 0x0000, 0x0004, 0x0000, 0x0002, 0x0000, 0x4245, 0x4144, 
+    0x3836, 0x7778, 0x0000, 0x0000, 0x000c, 0x0000, 0x6c50, 0x6775, 0x6e69, 
+    0x614d, 0x6e69, 0x0000, 0x4245, 0x4144, 0x6e6d, 0x7069, 0x0000, 0x0000, 
+    0x0010, 0x0000, 0x6554, 0x7478, 0x6946, 0x656c, 0x6f46, 0x6d72, 0x7461, 
+    0x0000, "\000" 
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
