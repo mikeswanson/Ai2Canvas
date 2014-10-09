@@ -103,8 +103,9 @@ ASErr Ai2CanvasPlugin::StartupPlugin(SPInterfaceMessage* message)
 {
 	ASErr error = kNoErr;
 	error = Plugin::StartupPlugin(message);
-	
+    if (error) { return error;  }
 	error = this->AddMenus(message);
+    if (error) { return error;  }
 	error = this->AddFileFormats(message);
 	
 	return error;
@@ -118,13 +119,13 @@ ASErr Ai2CanvasPlugin::GoMenuItem(AIMenuMessage* message)
 		SDKAboutPluginsHelper aboutPluginsHelper;
 
 		#ifdef MAC_ENV
-			aboutPluginsHelper.PopAboutBox(message, "Ai->Canvas Export Plug-In 1.2 (Mac)", "Copyright 2010-2013 Mike Swanson\nAll rights reserved\nhttp://blog.mikeswanson.com/");
+			aboutPluginsHelper.PopAboutBox(message, "Ai->Canvas Export Plug-In 1.3 (Mac)", "Copyright 2010-2014 Mike Swanson\nAll rights reserved\nhttp://blog.mikeswanson.com/");
 		#endif 
 		#ifdef WIN_ENV
 		#ifdef _WIN64
-			aboutPluginsHelper.PopAboutBox(message, "Ai->Canvas Export Plug-In 1.2 (PC/64)", "Copyright 2010-2013 Mike Swanson\nAll rights reserved\nhttp://blog.mikeswanson.com/");
+			aboutPluginsHelper.PopAboutBox(message, "Ai->Canvas Export Plug-In 1.3 (PC/64)", "Copyright 2010-2014 Mike Swanson\nAll rights reserved\nhttp://blog.mikeswanson.com/");
 		#else
-			aboutPluginsHelper.PopAboutBox(message, "Ai->Canvas Export Plug-In 1.2 (PC/32)", "Copyright 2010-2013 Mike Swanson\nAll rights reserved\nhttp://blog.mikeswanson.com/");
+			aboutPluginsHelper.PopAboutBox(message, "Ai->Canvas Export Plug-In 1.3 (PC/32)", "Copyright 2010-2014 Mike Swanson\nAll rights reserved\nhttp://blog.mikeswanson.com/");
 		#endif
 		#endif 
 	}	
@@ -138,7 +139,7 @@ ASErr Ai2CanvasPlugin::AddMenus(SPInterfaceMessage* message) {
 	SDKAboutPluginsHelper aboutPluginsHelper;
 	error = aboutPluginsHelper.AddAboutPluginsMenuItem(message, 
 				"AboutMikeSwansonPluginsGroupName", 
-				ai::UnicodeString("About Mike Swanson Plug-Ins", 27, kAIPlatformCharacterEncoding), 
+				ai::UnicodeString("About Mike Swanson Plug-Ins"),
 				"Ai->Canvas...", 
 				&this->fAboutPluginMenu);
 	return error;

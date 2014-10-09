@@ -24,7 +24,7 @@
 #include "Document.h"
 
 // Current plug-in version
-#define PLUGIN_VERSION "1.2"
+#define PLUGIN_VERSION "1.3"
 
 using namespace CanvasExport;
 

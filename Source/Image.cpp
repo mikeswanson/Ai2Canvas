@@ -52,10 +52,17 @@ std::string Image::Uri()
 	std::string uri = aiFilePath.GetAsURL(false).as_Platform();
 
 	// Firefox doesn't like local "file:" references
-	if (!pathIsAbsolute && uri.substr(0, 5) == "file:")
+	if (!pathIsAbsolute && uri.length() >= 5 && uri.substr(0, 5) == "file:")
 	{
 		// Strip "file:" from string
 		uri = uri.substr(5);
+	}
+
+	// Initial slashes?
+	if (!pathIsAbsolute && uri.length() >= 3 && uri.substr(0, 3) == "///")
+	{
+		// Strip "///" from string
+		uri = uri.substr(3);
 	}
 
 	return uri;

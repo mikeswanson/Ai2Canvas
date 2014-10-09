@@ -27,6 +27,8 @@
 
 using namespace CanvasExport;
 
+AIBoolean ProgressProc(ai::int32 current, ai::int32 total);
+
 // Outside of namespace
 // TODO: Fix this
 AIBoolean ProgressProc(ai::int32 current, ai::int32 total)

@@ -42,14 +42,14 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "Mike Swanson"
-            VALUE "Copyright", "Copyright 2010-2013 Mike Swanson. All rights reserved."
+            VALUE "Copyright", "Copyright 2010-2014 Mike Swanson. All rights reserved."
             VALUE "FileDescription", "Ai->Canvas Export Plug-In"
             VALUE "FileVersion", "16.0"
             VALUE "InternalName", "Ai->Canvas"
-            VALUE "LegalCopyright", "Copyright 2010-2013 Mike Swanson. All rights reserved."
+            VALUE "LegalCopyright", "Copyright 2010-2014 Mike Swanson. All rights reserved."
             VALUE "OriginalFilename", "Ai2Canvas.aip"
             VALUE "ProductName", "Ai->Canvas"
-            VALUE "ProductVersion", "1.2"
+            VALUE "ProductVersion", "1.3"
         END
     END
     BLOCK "VarFileInfo"

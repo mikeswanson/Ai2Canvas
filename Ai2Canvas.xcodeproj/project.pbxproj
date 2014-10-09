@@ -63,7 +63,7 @@
 /* Begin PBXFileReference section */
 		0982B17A1794C22900293AB1 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = ../../../../../../System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<group>"; };
 		09BC474515D85467004AC639 /* Ai2CanvasID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ai2CanvasID.h; path = Source/Ai2CanvasID.h; sourceTree = "<group>"; };
-		09BC474615D85467004AC639 /* Ai2CanvasPlugin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Ai2CanvasPlugin.cpp; path = Source/Ai2CanvasPlugin.cpp; sourceTree = "<group>"; };
+		09BC474615D85467004AC639 /* Ai2CanvasPlugin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = Ai2CanvasPlugin.cpp; path = Source/Ai2CanvasPlugin.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		09BC474715D85467004AC639 /* Ai2CanvasPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ai2CanvasPlugin.h; path = Source/Ai2CanvasPlugin.h; sourceTree = "<group>"; };
 		09BC474815D85467004AC639 /* Ai2CanvasSuites.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Ai2CanvasSuites.cpp; path = Source/Ai2CanvasSuites.cpp; sourceTree = "<group>"; };
 		09BC474915D85467004AC639 /* Ai2CanvasSuites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ai2CanvasSuites.h; path = Source/Ai2CanvasSuites.h; sourceTree = "<group>"; };
@@ -75,7 +75,7 @@
 		09BC474F15D85467004AC639 /* Canvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Canvas.h; path = Source/Canvas.h; sourceTree = "<group>"; };
 		09BC475015D85467004AC639 /* CanvasCollection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CanvasCollection.cpp; path = Source/CanvasCollection.cpp; sourceTree = "<group>"; };
 		09BC475115D85467004AC639 /* CanvasCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CanvasCollection.h; path = Source/CanvasCollection.h; sourceTree = "<group>"; };
-		09BC475215D85467004AC639 /* Document.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Document.cpp; path = Source/Document.cpp; sourceTree = "<group>"; };
+		09BC475215D85467004AC639 /* Document.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = Document.cpp; path = Source/Document.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		09BC475315D85467004AC639 /* Document.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Document.h; path = Source/Document.h; sourceTree = "<group>"; };
 		09BC475415D85467004AC639 /* DocumentResources.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DocumentResources.cpp; path = Source/DocumentResources.cpp; sourceTree = "<group>"; };
 		09BC475515D85467004AC639 /* DocumentResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DocumentResources.h; path = Source/DocumentResources.h; sourceTree = "<group>"; };
@@ -401,18 +401,19 @@
 				OBJROOT = .;
 				ONLY_LINK_ESSENTIAL_SYMBOLS = YES;
 				OTHER_LDFLAGS = "";
+				PREBINDING = NO;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				PRESERVE_DEAD_CODE_INITS_AND_TERMS = NO;
-				PRODUCT_NAME = TextFileFormat;
-				PROJECTNAME = Ai2Canvas;
+				PRODUCT_NAME = Ai2CanvasMac;
+				PROJECTNAME = Ai2CanvasMac;
 				REZ_SEARCH_PATHS = "";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
-				SDKROOT = "";
+				SDKROOT = macosx;
 				SEPARATE_STRIP = NO;
 				SHARED_PRECOMPS_DIR = "./../output/mac/sharedprecompiledheaders/$(AI_CONFIGURATION)";
 				SKIP_INSTALL = NO;
 				STRIP_INSTALLED_PRODUCT = YES;
-				STRIP_STYLE = all;
+				STRIP_STYLE = "non-global";
 				SYMROOT = "./../output/mac/$(AI_CONFIGURATION)";
 				VALID_ARCHS = "i386 x86_64";
 				WRAPPER_EXTENSION = aip;
@@ -461,18 +462,19 @@
 				OBJROOT = .;
 				ONLY_LINK_ESSENTIAL_SYMBOLS = YES;
 				OTHER_LDFLAGS = "";
+				PREBINDING = NO;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				PRESERVE_DEAD_CODE_INITS_AND_TERMS = NO;
-				PRODUCT_NAME = TextFileFormat;
-				PROJECTNAME = Ai2Canvas;
+				PRODUCT_NAME = Ai2CanvasMac;
+				PROJECTNAME = Ai2CanvasMac;
 				REZ_SEARCH_PATHS = "";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
-				SDKROOT = "";
+				SDKROOT = macosx;
 				SEPARATE_STRIP = NO;
 				SHARED_PRECOMPS_DIR = "./../output/mac/sharedprecompiledheaders/$(AI_CONFIGURATION)";
 				SKIP_INSTALL = NO;
 				STRIP_INSTALLED_PRODUCT = YES;
-				STRIP_STYLE = all;
+				STRIP_STYLE = "non-global";
 				SYMROOT = "./../output/mac/$(AI_CONFIGURATION)";
 				VALID_ARCHS = "i386 x86_64";
 				WRAPPER_EXTENSION = aip;
@@ -483,7 +485,7 @@
 		508817D809F0C9AE0071BF1A /* debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
+				COMBINE_HIDPI_IMAGES = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				PRODUCT_NAME = Ai2CanvasMac;
 				PROJECTNAME = Ai2CanvasMac;
@@ -493,7 +495,7 @@
 		508817D909F0C9AE0071BF1A /* release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
+				COMBINE_HIDPI_IMAGES = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				PRODUCT_NAME = Ai2CanvasMac;
 				PROJECTNAME = Ai2CanvasMac;
