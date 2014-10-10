@@ -11,19 +11,19 @@ This brief video (while a bit dated) provides an overview of the plug-in’s fun
 
 ## Requirements
 
-This repository includes both a Visual Studio 2010 solution for PC (with both Win32 and x64 targets) and a Xcode 5 project for Mac. It also requires the Adobe Illustrator CC SDK. While more recent versions of the SDK may work, building against the CC version enables compatibility with both Illustrator CC and CC 2014.
+This repository includes both a Visual Studio 2010 solution for PC (with both Win32 and x64 targets) and a Xcode 6 project for Mac. It also requires the Adobe Illustrator CC 2014.1 SDK.
 
 ## Getting Started
 
 Because the project depends on the Illustrator SDK and references many files using relative paths, it is important to place the project in the correct location.
 
-1. Download and extract the [Adobe Illustrator CC SDK](http://www.adobe.com/devnet/illustrator/sdk/eula_cc.html) for PC or Mac
+1. Download and extract the [Adobe Illustrator CC 2014.1 SDK](http://www.adobe.com/devnet/illustrator/sdk/eula_cc1.html) for PC or Mac
 
-2. From the _Adobe Illustrator CC SDK/samplecode_ folder:
+2. From the _Adobe Illustrator CC 2014 SDK/samplecode_ folder:
 
 			git clone https://github.com/mikeswanson/Ai2Canvas.git
 
-3. You can now open and build the Visual Studio solution or the Xcode project. Output can be found in the _Adobe Illustrator CC SDK/samplecode/output_ folder.
+3. You can now open and build the Visual Studio solution or the Xcode project. Output can be found in the _Adobe Illustrator CC 2014 SDK/samplecode/output_ folder.
 
 If you decide to move the project, you will need to update the many relevant paths. As a historical note, Ai->Canvas started its life based on an older version of Adobe's _TextFileFormat_ sample, and it was easiest to create the new project in a parallel folder to keep the relative references intact.
 
