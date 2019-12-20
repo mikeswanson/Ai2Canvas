@@ -1,6 +1,6 @@
 // Document.cpp
 //
-// Copyright (c) 2010-2014 Mike Swanson (http://blog.mikeswanson.com)
+// Copyright (c) 2010-2018 Mike Swanson (http://blog.mikeswanson.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -24,7 +24,7 @@
 #include "Document.h"
 
 // Current plug-in version
-#define PLUGIN_VERSION "1.3"
+#define PLUGIN_VERSION "1.4"
 
 using namespace CanvasExport;
 
