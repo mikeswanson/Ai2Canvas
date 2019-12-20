@@ -106,7 +106,7 @@ ImportSuite gImportSuites[] =
 	kAIRealBezierSuite, kAIRealBezierSuiteVersion, &sAIRealBezier,
 
 	IMPORT_TEXT_SUITES
-	nil, 0, nil
+	NULL, 0, NULL
 };
 
 

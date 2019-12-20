@@ -161,7 +161,8 @@ void Canvas::RenderArt(AIArtHandle artHandle, unsigned int depth)
 
 		// Get the path style
 		AIPathStyle style;
-		sAIPathStyle->GetPathStyle(artHandle, &style);
+		AIBoolean outHasAdvFill = false;
+		sAIPathStyle->GetPathStyle(artHandle, &style, &outHasAdvFill);
 
 		// Is this kPluginArt?
 		if (type == kPluginArt)
@@ -195,7 +196,7 @@ void Canvas::RenderArt(AIArtHandle artHandle, unsigned int depth)
 		// Find the next sibling
 		sAIArt->GetArtSibling(artHandle, &artHandle);
 	}
-	while (artHandle != nil);
+	while (artHandle != NULL);
 
 	// Did we find a clipping path?
 	if (hasClipIndex)
@@ -960,7 +961,7 @@ void Canvas::ReportColorSpaceInfo(ai::int16 colorSpace)
 void Canvas::RenderGroupArt(AIArtHandle artHandle, unsigned int depth)
 {
 	// Get the first art element in the group
-	AIArtHandle childArtHandle = nil;
+	AIArtHandle childArtHandle = NULL;
 	sAIArt->GetArtFirstChild(artHandle, &childArtHandle);
 
 	// Render this sub-group
@@ -985,7 +986,8 @@ void Canvas::RenderPluginArt(AIArtHandle artHandle, unsigned int depth)
 	if (strcmp(*pluginArtName, "Pathfinder Suite") == 0)
 	{
 		// Set pathfinder style
-		sAIPathStyle->GetPathStyle(artHandle, &pathfinderStyle);
+		AIBoolean outHasAdvFill = false;
+		sAIPathStyle->GetPathStyle(artHandle, &pathfinderStyle, &outHasAdvFill);
 		usePathfinderStyle = true;
 
 		// Determine if this plug-in art is clipping
@@ -996,13 +998,13 @@ void Canvas::RenderPluginArt(AIArtHandle artHandle, unsigned int depth)
 		pathfinderStyle.clip = clipping;
 	}
 
-	AIArtHandle resultArtHandle = nil;
+	AIArtHandle resultArtHandle = NULL;
 
 	// Get the result art handle
 	sAIPluginGroup->GetPluginArtResultArt(artHandle, &resultArtHandle);
 
 	// Get the first art element in the result group
-	AIArtHandle childArtHandle = nil;
+	AIArtHandle childArtHandle = NULL;
 	sAIArt->GetArtFirstChild(resultArtHandle, &childArtHandle);
 
 	// Render this sub-group
@@ -1072,7 +1074,8 @@ void Canvas::RenderCompoundPathArt(AIArtHandle artHandle, unsigned int depth)
 
 	// Get the "normal" style for this path
 	AIPathStyle style;
-	sAIPathStyle->GetPathStyle(artHandle, &style);
+	AIBoolean outHasAdvFill = false;
+	sAIPathStyle->GetPathStyle(artHandle, &style, &outHasAdvFill);
 
 	// Apply style
 	RenderPathStyle(style, depth);
@@ -1100,7 +1103,8 @@ void Canvas::RenderPathArt(AIArtHandle artHandle, unsigned int depth)
 
 		// Get the "normal" style for this path
 		AIPathStyle style;
-		sAIPathStyle->GetPathStyle(artHandle, &style);
+		AIBoolean outHasAdvFill = false;
+		sAIPathStyle->GetPathStyle(artHandle, &style, &outHasAdvFill);
 
 		// Begin path
 		if (!isCompound)

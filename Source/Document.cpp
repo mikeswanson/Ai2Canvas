@@ -686,7 +686,7 @@ void Document::ScanLayerArtwork(AIArtHandle artHandle, unsigned int depth, Layer
 			if (type == kSymbolArt)
 			{
 				// Get the symbol pattern
-				AIPatternHandle symbolPatternHandle = nil;
+				AIPatternHandle symbolPatternHandle = NULL;
 				sAISymbol->GetSymbolPatternOfSymbolArt(artHandle, &symbolPatternHandle);
 
 				// Add the symbol pattern
@@ -733,7 +733,8 @@ void Document::ScanLayerArtwork(AIArtHandle artHandle, unsigned int depth, Layer
 
 			// Get the style for this artwork
 			AIPathStyle style;
-			sAIPathStyle->GetPathStyle(artHandle, &style);
+			AIBoolean outHasAdvFill = false;
+			sAIPathStyle->GetPathStyle(artHandle, &style, &outHasAdvFill);
 
 			// Does this artwork use a pattern fill or a gradient?
 			if (style.fillPaint)
@@ -1443,7 +1444,7 @@ void Document::RenderSymbolFunctions()
 				}
 
 				// Get a handle to the pattern art
-				AIArtHandle patternArtHandle = nil;
+				AIArtHandle patternArtHandle = NULL;
 				sAIPattern->GetPatternArt(pattern->patternHandle, &patternArtHandle);
 
 				// While we're here, get the size of this canvas
@@ -1530,7 +1531,7 @@ void Document::RenderPatternFunction()
 				outFile << "\n" << Indent(1) << "var " << canvas->contextName << " = " << canvas->id << ".getContext(\"2d\");";
 
 				// Get a handle to the pattern art
-				AIArtHandle patternArtHandle = nil;
+				AIArtHandle patternArtHandle = NULL;
 				sAIPattern->GetPatternArt(pattern->patternHandle, &patternArtHandle);
 
 				// While we're here, get the size of this canvas

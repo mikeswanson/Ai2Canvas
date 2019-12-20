@@ -153,9 +153,9 @@ ASErr Ai2CanvasPlugin::AddFileFormats(SPInterfaceMessage* message)
 	char pstrCanvas[kMaxStringLength] = "<canvas>";
 	
 	this->CStrToPStr(pstrCanvas, kMaxStringLength);
-	affd.title = (unsigned char*)pstrCanvas;
+	affd.title = ai::UnicodeString::FromRoman(pstrCanvas);
 	affd.titleOrder = 0;
-	affd.extension = "html";
+	affd.extension = ai::UnicodeString::FromRoman("html");
 	
 	error = sAIFileFormat->AddFileFormat( message->d.self, "<canvas>",
 				                          &affd, kFileFormatExport,
@@ -187,15 +187,15 @@ ASErr Ai2CanvasPlugin::WriteText(const char* pathName)
 
 	#ifdef MAC_ENV
 		// Determine if shift key is being held down (can't distinguish between left/right shift keys using this method on OS X)
-//		bool debug = ((GetCurrentKeyModifiers() & (1 << shiftKeyBit)) != 0);
+//		bool debugActivated = ((GetCurrentKeyModifiers() & (1 << shiftKeyBit)) != 0);
     
-        bool debug = (CGEventSourceFlagsState(kCGEventSourceStateHIDSystemState) & kCGEventFlagMaskShift);
+        bool debugActivated = (CGEventSourceFlagsState(kCGEventSourceStateHIDSystemState) & kCGEventFlagMaskShift);
     
 		openFile = true;
 	#endif 
 	#ifdef WIN_ENV
 		// Determine if the left shift key is being held down (to indicate previewing HTML file after export)
-		bool debug = ((GetKeyState(VK_LSHIFT) &0x1000) != 0);
+		bool debugActivated = ((GetKeyState(VK_LSHIFT) &0x1000) != 0);
 		openFile = true;
 	#endif 
 
@@ -205,7 +205,7 @@ ASErr Ai2CanvasPlugin::WriteText(const char* pathName)
 	{
 		// Set debug mode
 		//CanvasExport::debug = (openFile != 0);
-		CanvasExport::debug = debug;
+		CanvasExport::debug = debugActivated;
 
 		// Create a new document
 		Document* document = new Document(file);

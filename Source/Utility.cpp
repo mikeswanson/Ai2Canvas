@@ -372,5 +372,5 @@ void CanvasExport::WriteArtTree(AIArtHandle artHandle, int depth)
 		// Find the next sibling
 		sAIArt->GetArtSibling(artHandle, &artHandle);
 	}
-	while (artHandle != nil);
+	while (artHandle != NULL);
 }

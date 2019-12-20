@@ -154,13 +154,13 @@ void AnimationFunction::RenderArt(AIArtHandle artHandle, unsigned int depth)
 		// Find the next sibling
 		sAIArt->GetArtSibling(artHandle, &artHandle);
 	}
-	while (artHandle != nil);
+	while (artHandle != NULL);
 }
 
 void AnimationFunction::RenderGroupArt(AIArtHandle artHandle, unsigned int depth)
 {
 	// Get the first art element in the group
-	AIArtHandle childArtHandle = nil;
+	AIArtHandle childArtHandle = NULL;
 	sAIArt->GetArtFirstChild(artHandle, &childArtHandle);
 
 	// Render this sub-group
@@ -170,7 +170,7 @@ void AnimationFunction::RenderGroupArt(AIArtHandle artHandle, unsigned int depth
 void AnimationFunction::RenderCompoundPathArt(AIArtHandle artHandle, unsigned int depth)
 {
 	// Get the first art element in the group
-	AIArtHandle childArtHandle = nil;
+	AIArtHandle childArtHandle = NULL;
 	sAIArt->GetArtFirstChild(artHandle, &childArtHandle);
 
 	// Render this sub-group
@@ -202,7 +202,7 @@ void AnimationFunction::RenderPathArt(AIArtHandle artHandle, unsigned int depth)
 			}
 
 		}
-		while (isCompound && (artHandle != nil));
+		while (isCompound && (artHandle != NULL));
 	}
 }
 
