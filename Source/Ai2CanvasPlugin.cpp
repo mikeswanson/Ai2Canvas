@@ -119,13 +119,13 @@ ASErr Ai2CanvasPlugin::GoMenuItem(AIMenuMessage* message)
 		SDKAboutPluginsHelper aboutPluginsHelper;
 
 		#ifdef MAC_ENV
-			aboutPluginsHelper.PopAboutBox(message, "Ai->Canvas Export Plug-In 1.4 (Mac)", "Copyright 2010-2020 Mike Swanson\nAll rights reserved\nhttp://blog.mikeswanson.com/");
+			aboutPluginsHelper.PopAboutBox(message, "Ai->Canvas Export Plug-In 1.5 (Mac)", "Copyright 2010-2020 Mike Swanson\nAll rights reserved\nhttp://blog.mikeswanson.com/");
 		#endif 
 		#ifdef WIN_ENV
 		#ifdef _WIN64
-			aboutPluginsHelper.PopAboutBox(message, "Ai->Canvas Export Plug-In 1.4 (PC/64)", "Copyright 2010-2020 Mike Swanson\nAll rights reserved\nhttp://blog.mikeswanson.com/");
+			aboutPluginsHelper.PopAboutBox(message, "Ai->Canvas Export Plug-In 1.5 (PC/64)", "Copyright 2010-2020 Mike Swanson\nAll rights reserved\nhttp://blog.mikeswanson.com/");
 		#else
-			aboutPluginsHelper.PopAboutBox(message, "Ai->Canvas Export Plug-In 1.4 (PC/32)", "Copyright 2010-2020 Mike Swanson\nAll rights reserved\nhttp://blog.mikeswanson.com/");
+			aboutPluginsHelper.PopAboutBox(message, "Ai->Canvas Export Plug-In 1.5 (PC/32)", "Copyright 2010-2020 Mike Swanson\nAll rights reserved\nhttp://blog.mikeswanson.com/");
 		#endif
 		#endif 
 	}	
