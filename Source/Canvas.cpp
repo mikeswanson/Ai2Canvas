@@ -1668,6 +1668,7 @@ void Canvas::RenderFillInfo(const AIColor& fillColor, unsigned int depth)
 			break;
 		}
         case kNoneColor:
+        case kAdvanceColor:
         {
             break;
         }
@@ -1703,6 +1704,7 @@ void Canvas::GetFillStyle(const AIColor& color, AIReal alpha, std::string& fillS
 			break;
 		}
         case kNoneColor:
+        case kAdvanceColor:
         {
             break;
         }
@@ -1793,6 +1795,7 @@ void Canvas::RenderStrokeInfo(const AIStrokeStyle& strokeStyle, unsigned int dep
         case kPattern:
         case kGradient:
         case kNoneColor:
+        case kAdvanceColor:
         {
             break;
         }
@@ -2543,6 +2546,7 @@ void Canvas::ConvertColorToRGB(const AIColor& sourceColor, AIColor& rbgColor)
         case kPattern:
         case kGradient:
         case kNoneColor:
+        case kAdvanceColor:
         {
             break;
         }

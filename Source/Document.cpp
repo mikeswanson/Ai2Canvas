@@ -761,6 +761,7 @@ void Document::ScanLayerArtwork(AIArtHandle artHandle, unsigned int depth, Layer
                     case kCustomColor:
                     case kThreeColor:
                     case kNoneColor:
+                    case kAdvanceColor:
                     {
                         break;
                     }
@@ -792,6 +793,7 @@ void Document::ScanLayerArtwork(AIArtHandle artHandle, unsigned int depth, Layer
                     case kCustomColor:
                     case kThreeColor:
                     case kNoneColor:
+                    case kAdvanceColor:
                     {
                         break;
                     }
