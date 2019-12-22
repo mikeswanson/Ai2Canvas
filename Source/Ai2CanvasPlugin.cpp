@@ -152,7 +152,6 @@ ASErr Ai2CanvasPlugin::AddFileFormats(SPInterfaceMessage* message)
 	PlatformAddFileFormatData affd;
 	char pstrCanvas[kMaxStringLength] = "<canvas>";
 	
-	this->CStrToPStr(pstrCanvas, kMaxStringLength);
 	affd.title = ai::UnicodeString::FromRoman(pstrCanvas);
 	affd.titleOrder = 0;
 	affd.extension = ai::UnicodeString::FromRoman("html");
@@ -242,21 +241,6 @@ ASErr Ai2CanvasPlugin::WriteText(const char* pathName)
 	#endif 
 
 	return error;
-}
-
-/////////////////////////////////////////
-//
-// Utility functions
-//
-/////////////////////////////////////////
-
-/*
-*/
-void Ai2CanvasPlugin::CStrToPStr(char *s, ai::UnicodeString::size_type len)
-{
-	const ai::UnicodeString sAsUnicode((const char*)s);
-	ai::PStr sAsPStr((unsigned char*) s);
-	sAsUnicode.getToBuffer(sAsPStr, len, kAIUTF8CharacterEncoding );
 }
 
 // End Ai2CanvasPlugin.cpp

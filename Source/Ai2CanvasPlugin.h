@@ -117,9 +117,5 @@ private:
 		@return kNoErr on success, other ASErr otherwise.
 	*/
 	ASErr WriteText(const char* pathName);
-	
-	/** Converts given C string into a Pascal string.
-	*/
-	void CStrToPStr(char *s, ai::UnicodeString::size_type len);
 };
 #endif // End Ai2CanvasPlugin.h
