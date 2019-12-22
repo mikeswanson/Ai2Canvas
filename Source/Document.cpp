@@ -618,7 +618,7 @@ void Document::ScanDocument()
 
 	// Loop through all layers backwards
 	// We loop backwards, since the HTML5 canvas element uses a "painter model"
-	for (long i = (layerCount - 1); i > -1; i--)
+	for (ai::int32 i = (layerCount - 1); i > -1; i--)
 	{
 		// Get a reference to the layer
 		sAILayer->GetNthLayer(i, &layerHandle);

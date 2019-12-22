@@ -2478,8 +2478,8 @@ std::string Canvas::GetColor(const AIColor& color, AIReal alpha)
 
 void Canvas::ConvertColorToRGB(const AIColor& sourceColor, AIColor& rbgColor)
 {
-	long srcSpace = 0;
-	long dstSpace = kAIRGBColorSpace;
+	ai::int32 srcSpace = 0;
+	ai::int32 dstSpace = kAIRGBColorSpace;
 	SampleComponent srcColor[5];
 	SampleComponent dstColor[5];
 	ASBoolean inGamut;

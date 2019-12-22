@@ -325,7 +325,7 @@ void CanvasExport::WriteArtTree()
 	sAILayer->CountLayers(&layerCount);
 
 	// Loop through all layers
-	for (long i = 0; i < layerCount; i++)
+	for (ai::int32 i = 0; i < layerCount; i++)
 	{
 		// Get a reference to the layer
 		sAILayer->GetNthLayer(i, &layerHandle);
