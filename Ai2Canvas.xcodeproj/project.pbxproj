@@ -286,13 +286,14 @@
 			};
 			buildConfigurationList = 508817C509F0C9740071BF1A /* Build configuration list for PBXProject "Ai2Canvas" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
-				Japanese,
-				French,
-				German,
+				Base,
+				ja,
+				fr,
+				de,
+				en,
 			);
 			mainGroup = 508817C209F0C9740071BF1A;
 			productRefGroup = 508817D509F0C9AD0071BF1A /* Products */;
@@ -447,6 +448,7 @@
 				STRIP_STYLE = "non-global";
 				SYMROOT = "./../output/mac/$(AI_CONFIGURATION)";
 				VALID_ARCHS = "i386 x86_64";
+				WARNING_CFLAGS = "-Wno-multichar";
 				WRAPPER_EXTENSION = aip;
 				ZERO_LINK = NO;
 			};
@@ -534,6 +536,7 @@
 				STRIP_STYLE = "non-global";
 				SYMROOT = "./../output/mac/$(AI_CONFIGURATION)";
 				VALID_ARCHS = "i386 x86_64";
+				WARNING_CFLAGS = "-Wno-multichar";
 				WRAPPER_EXTENSION = aip;
 				ZERO_LINK = NO;
 			};
