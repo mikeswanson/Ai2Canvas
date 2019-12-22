@@ -53,7 +53,7 @@ Canvas::Canvas(const std::string& id, DocumentResources* documentResources)
 	this->height = 0.0f;
 	this->isHidden = false;
 	this->contextName = "";
-	this->currentState = NULL;
+	this->currentState = nullptr;
 	this->usePathfinderStyle = false;
 
 	// Push the first drawing state
@@ -196,7 +196,7 @@ void Canvas::RenderArt(AIArtHandle artHandle, unsigned int depth)
 		// Find the next sibling
 		sAIArt->GetArtSibling(artHandle, &artHandle);
 	}
-	while (artHandle != NULL);
+	while (artHandle != nullptr);
 
 	// Did we find a clipping path?
 	if (hasClipIndex)
@@ -245,7 +245,7 @@ void Canvas::RenderArt(AIArtHandle artHandle, unsigned int depth)
 			sAIMask->GetMask(artHandle, &mask);
 
 			// Did we find a mask?
-			if (mask != NULL)
+			if (mask != nullptr)
 			{
 				// Output a warning
 				outFile << "\n" << Indent(depth) << "// This artwork uses an unsupported opacity mask";
@@ -420,11 +420,11 @@ void Canvas::ParseArtStyle(AIArtHandle artHandle, unsigned int depth, ASInt32& p
 	hasDropShadow = false;
 
 	// Get the style for this art handle
-	AIArtStyleHandle artStyle = NULL;
+	AIArtStyleHandle artStyle = nullptr;
     sAIArtStyle->GetArtStyle(artHandle, &artStyle);
 
 	// Create a new style parser 
-	AIStyleParser parser(NULL);
+	AIStyleParser parser(nullptr);
     sAIArtStyleParser->NewParser(&parser);
     
 	// Parse the art style
@@ -452,7 +452,7 @@ void Canvas::ParseArtStyle(AIArtHandle artHandle, unsigned int depth, ASInt32& p
 		sAIArtStyleParser->GetLiveEffectHandle(liveEffect, &liveEffectHandle);
 		
 		// Get the name of the effect (function appears to allocate its own memory???)
-		const char *liveEffectName = NULL;
+		const char *liveEffectName = nullptr;
 		// TODO: Do we need to release this memory somewhere? Or does the fact that we retrieved the handle via the AIArtStyleParser do the trick
 		//       (since we clean-up the parser later)?
 		sAILiveEffect->GetLiveEffectName(liveEffectHandle, &liveEffectName);
@@ -481,7 +481,7 @@ void Canvas::ParseArtStyle(AIArtHandle artHandle, unsigned int depth, ASInt32& p
 			if (params)
 			{
 				// Create an iterator for the parameters dictionary items
-				AIDictionaryIterator dictionaryIter = NULL;
+				AIDictionaryIterator dictionaryIter = nullptr;
 				sAIDictionary->Begin(params, &dictionaryIter);
 
 				// Iterate through the parameter dictionary entries
@@ -492,7 +492,7 @@ void Canvas::ParseArtStyle(AIArtHandle artHandle, unsigned int depth, ASInt32& p
 					AIDictKey dictKey = sAIDictionaryIterator->GetKey(dictionaryIter);
 
 					// Get the key string
-					const char *keyString = NULL;
+					const char *keyString = nullptr;
 					keyString = sAIDictionary->GetKeyString(dictKey);
 
 					// Clean-up key string
@@ -619,13 +619,13 @@ void Canvas::RenderUnsupportedArt(AIArtHandle artHandle, const std::string& file
 
 	// Get the actual dimensions of the rasterized PNG file
 	// Note that the AIArtOptSuite functions seems to rasterize to different sizes, which is why we do this step
-	unsigned int width = 0;
-	unsigned int height = 0;
-	GetPNGDimensions(fullPath, width, height);
+	unsigned int pngWidth = 0;
+	unsigned int pngHeight = 0;
+	GetPNGDimensions(fullPath, pngWidth, pngHeight);
 
 	if (debug)
 	{
-		outFile << "\n// Actual PNG file dimensions, width = " << width << ", height = " << height;
+		outFile << "\n// Actual PNG file dimensions, width = " << pngWidth << ", height = " << pngHeight;
 	}
 
 	// Add a new image
@@ -651,8 +651,8 @@ void Canvas::RenderUnsupportedArt(AIArtHandle artHandle, const std::string& file
 	TransformRect(bounds);
 
 	// Since the PNG rasterize process doesn't always create images of bounds size, center the image inside of the bounds
-	AIReal x = bounds.left + (((bounds.right - bounds.left) - width) / 2.0f);
-	AIReal y = bounds.top + (((bounds.bottom - bounds.top) - height) / 2.0f);
+	AIReal x = bounds.left + (((bounds.right - bounds.left) - pngWidth) / 2.0f);
+	AIReal y = bounds.top + (((bounds.bottom - bounds.top) - pngHeight) / 2.0f);
 
 	// Draw image
 	image->RenderDrawImage(contextName, x, y);
@@ -669,12 +669,12 @@ void Canvas::RasterizeArtToPNG(AIArtHandle artHandle, const std::string& path)
 
     AIRealRect bounds;
     sAIArt->GetArtBounds(artHandle, &bounds);
-    AIReal width = bounds.right - bounds.left;
-    AIReal height = bounds.top - bounds.bottom;
+    AIReal artWidth = bounds.right - bounds.left;
+    AIReal artHeight = bounds.top - bounds.bottom;
 
 	AIErr result = kNoErr;
-	AIDataFilter *dstFilter = NULL;
-	AIDataFilter *filter = NULL;
+	AIDataFilter *dstFilter = nullptr;
+	AIDataFilter *filter = nullptr;
 	if (!result)
 			result = sAIDataFilter->NewFileDataFilter(filePath, "write", 'prw', 'PNGf', &filter);
 	if (!result) {
@@ -689,13 +689,13 @@ void Canvas::RasterizeArtToPNG(AIArtHandle artHandle, const std::string& path)
     params.versionOneSuiteParams.transparentIndex = 0;
     params.versionOneSuiteParams.resolution = 72.0f;
     params.versionOneSuiteParams.outAlpha = true;
-    params.versionOneSuiteParams.outWidth = (ASInt32)width;
-    params.versionOneSuiteParams.outHeight = (ASInt32)height;
+    params.versionOneSuiteParams.outWidth = (ASInt32)artWidth;
+    params.versionOneSuiteParams.outHeight = (ASInt32)artHeight;
 
     //We assume that the basic resolution of illustrator is 72 dpi
     AIReal resolutionRatio =  1.0f;
-    AIReal minDim = min(width,height) * resolutionRatio;
-    AIReal maxDim = max(width,height) * resolutionRatio;
+    AIReal minDim = min(artWidth,artHeight) * resolutionRatio;
+    AIReal maxDim = max(artWidth,artHeight) * resolutionRatio;
     AIReal ratio = 1;
 
     if (minDim < 1)
@@ -744,7 +744,7 @@ void Canvas::RasterizeArtToPNG(AIArtHandle artHandle, const std::string& path)
 // NOTE: Seems odd that we have to do this, but the rasterization suite in Illustrator doesn't seem to provide this information anywhere,
 //       and with the unreliability of the PNG generation sizes, we have to resort to this.
 // NOTE: PNG values are big endian, but we need little endian, so we have to reverse
-void Canvas::GetPNGDimensions(const std::string& path, unsigned int& width, unsigned int& height)
+void Canvas::GetPNGDimensions(const std::string& path, unsigned int& pngWidth, unsigned int& pngHeight)
 {
 	// Represents just enough of a PNG header for us to get its width and height
 	// TODO: Will this always work? Or will structure memory layouts cause issues?
@@ -766,14 +766,14 @@ void Canvas::GetPNGDimensions(const std::string& path, unsigned int& width, unsi
 #endif
 #ifdef WIN_ENV
 	// PNG file handle
-	FILE *pngFile = NULL;
+	FILE *pngFile = nullptr;
 	
 	// Open the PNG file for binary reading
 	fopen_s(&pngFile, path.c_str(), "rb");
 #endif
 
 	// Were we able to open the file?
-	if (pngFile != NULL)
+	if (pngFile != nullptr)
 	{
 		// Read the header info
 		PNGHeader header;
@@ -804,8 +804,8 @@ void Canvas::GetPNGDimensions(const std::string& path, unsigned int& width, unsi
 					header.height = ReverseInt(header.height);
 
 					// Assign return values
-					width = (unsigned int)header.width;
-					height = (unsigned int)header.height;
+					pngWidth = (unsigned int)header.width;
+					pngHeight = (unsigned int)header.height;
 				}
 			}
 		}
@@ -851,21 +851,21 @@ AIReal Canvas::GetJPGDPI(const std::string& path)
 
 #ifdef MAC_ENV
 	// JPG file handle
-	FILE *jpgFile = NULL;
+	FILE *jpgFile = nullptr;
 	
 	// Open the JPG file for binary reading
 	jpgFile = fopen(path.c_str(), "rb");
 #endif
 #ifdef WIN_ENV
 	// JPG file handle
-	FILE *jpgFile = NULL;
+	FILE *jpgFile = nullptr;
 	
 	// Open the JPG file for binary reading
 	fopen_s(&jpgFile, path.c_str(), "rb");
 #endif
 
 	// Were we able to open the file?
-	if (jpgFile != NULL)
+	if (jpgFile != nullptr)
 	{
 		// Read the header info
 		JPGHeader header;
@@ -961,7 +961,7 @@ void Canvas::ReportColorSpaceInfo(ai::int16 colorSpace)
 void Canvas::RenderGroupArt(AIArtHandle artHandle, unsigned int depth)
 {
 	// Get the first art element in the group
-	AIArtHandle childArtHandle = NULL;
+	AIArtHandle childArtHandle = nullptr;
 	sAIArt->GetArtFirstChild(artHandle, &childArtHandle);
 
 	// Render this sub-group
@@ -998,13 +998,13 @@ void Canvas::RenderPluginArt(AIArtHandle artHandle, unsigned int depth)
 		pathfinderStyle.clip = clipping;
 	}
 
-	AIArtHandle resultArtHandle = NULL;
+	AIArtHandle resultArtHandle = nullptr;
 
 	// Get the result art handle
 	sAIPluginGroup->GetPluginArtResultArt(artHandle, &resultArtHandle);
 
 	// Get the first art element in the result group
-	AIArtHandle childArtHandle = NULL;
+	AIArtHandle childArtHandle = nullptr;
 	sAIArt->GetArtFirstChild(resultArtHandle, &childArtHandle);
 
 	// Render this sub-group
@@ -1013,7 +1013,7 @@ void Canvas::RenderPluginArt(AIArtHandle artHandle, unsigned int depth)
 
 	// Release memory
 	free(pluginArtName);
-	pluginArtName = NULL;
+	pluginArtName = nullptr;
 }
 
 void Canvas::RenderSymbolArt(AIArtHandle artHandle, unsigned int depth)
@@ -1042,7 +1042,7 @@ void Canvas::RenderSymbolArt(AIArtHandle artHandle, unsigned int depth)
 	outFile << ");";
 
 	// Get the symbol pattern
-	AIPatternHandle symbolPatternHandle = NULL;
+	AIPatternHandle symbolPatternHandle = nullptr;
 	sAISymbol->GetSymbolPatternOfSymbolArt(artHandle, &symbolPatternHandle);
 
 	// Find the symbol pattern
@@ -1064,7 +1064,7 @@ void Canvas::RenderSymbolArt(AIArtHandle artHandle, unsigned int depth)
 void Canvas::RenderCompoundPathArt(AIArtHandle artHandle, unsigned int depth)
 {
 	// Get the first art element in the group
-	AIArtHandle childArtHandle = NULL;
+	AIArtHandle childArtHandle = nullptr;
 	sAIArt->GetArtFirstChild(artHandle, &childArtHandle);
 
 	outFile << "\n" << Indent(depth) << contextName << ".beginPath();";
@@ -1885,7 +1885,7 @@ void Canvas::RenderTextFrameArt(AIArtHandle artHandle, unsigned int depth)
 void Canvas::RenderGlyphRuns(AIArtHandle textFrameArt, unsigned int depth)
 {
 	// Create ITextFrame object.
-	TextFrameRef textFrameRef = NULL;
+	TextFrameRef textFrameRef = nullptr;
 	sAITextFrame->GetATETextFrame(textFrameArt, &textFrameRef);
 	ATE::ITextFrame frame(textFrameRef);
 
@@ -1920,7 +1920,7 @@ void Canvas::RenderGlyphRuns(AIArtHandle textFrameArt, unsigned int depth)
 			// Initialize state/style information for this run
 			GlyphState glyphState;
 			ASInt32 count = 0;
-			char *contents = NULL;
+			char *contents = nullptr;
 
 			// Any contents?
 			count = glyphRun.GetCharacterCount();
@@ -1977,7 +1977,7 @@ void Canvas::RenderGlyphRuns(AIArtHandle textFrameArt, unsigned int depth)
 
 				// Release memory
 				free(contents);
-				contents = NULL;
+				contents = nullptr;
 			}
 
 			// Get the next glyph run
@@ -1993,7 +1993,7 @@ void Canvas::RenderGlyphRuns(AIArtHandle textFrameArt, unsigned int depth)
 
 		// Release memory
 		free(text);
-		text = NULL;
+		text = nullptr;
 
 		// Get the next line
 		lines.Next();
@@ -2140,7 +2140,7 @@ void Canvas::GetGlyphState(const ATE::IGlyphRun& glyphRun, GlyphState& glyphStat
 
 		// Local font is assigned
 		FontRef fontRef = font.GetRef();
-		AIFontKey fontKey = NULL;
+		AIFontKey fontKey = nullptr;
 		sAIFont->FontKeyFromFont(fontRef, &fontKey);
 
 		// Get system font name
@@ -2164,9 +2164,9 @@ void Canvas::GetGlyphState(const ATE::IGlyphRun& glyphRun, GlyphState& glyphStat
 
 		// Release memory
 		free(systemFontName);
-		systemFontName = NULL;
+		systemFontName = nullptr;
 		free(fontStyleName);
-		fontStyleName = NULL;
+		fontStyleName = nullptr;
 	}
 
 	// Is there a vertical scale?

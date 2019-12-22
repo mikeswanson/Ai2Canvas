@@ -30,8 +30,8 @@ Layer::Layer()
 {
 	// Initialize Layer
 	this->name = "";
-	this->layerHandle = NULL;
-	this->artHandle = NULL;
+	this->layerHandle = nullptr;
+	this->artHandle = nullptr;
 	this->hasGradients = false;
 	this->hasPatterns = false;
 	this->hasAlpha = false;

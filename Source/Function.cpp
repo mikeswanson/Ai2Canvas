@@ -30,7 +30,7 @@ Function::Function()
 	// Initialize Function
 	this->type = kAnyFunction;
 	this->name = "";
-	this->canvas = NULL;
+	this->canvas = nullptr;
 	this->translateOrigin = false;
 	this->translateOriginH = 0.0f;
 	this->translateOriginV = 0.0f;

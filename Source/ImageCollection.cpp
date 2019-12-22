@@ -76,7 +76,7 @@ Image* ImageCollection::Add(const std::string& path)
 // Find an image, returns NULL if not found
 Image* ImageCollection::Find(const std::string& path)
 {
-	Image* result = NULL;
+	Image* result = nullptr;
 
 	// Loop through images
 	for (unsigned int i = 0; i < images.size(); i++)

@@ -35,7 +35,7 @@ DrawFunction::DrawFunction()
 	this->hasGradients = false;
 	this->hasPatterns = false;
 	this->hasAlpha = false;
-	this->animationFunction = NULL;
+	this->animationFunction = nullptr;
 	this->animationFunctionName = "";
 	this->follow = false;
 	this->followOrientation = 0.0f;
@@ -428,18 +428,18 @@ void DrawFunction::SetParameter(const std::string& parameter, const std::string&
 		}
 
 		// Get the associated animation function name
-		std::string animationFunctionName = value;
+		std::string cleanAnimationFunctionName = value;
 
 		// Clean the name for a function
-		CleanString(animationFunctionName, true);
+		CleanString(cleanAnimationFunctionName, true);
 
 		if (debug)
 		{
-			outFile << "\n//     Animation function name = " << animationFunctionName;
+			outFile << "\n//     Animation function name = " << cleanAnimationFunctionName;
 		}
 
 		// Store the function name as a string that we will bind after all layers have been defined
-		this->animationFunctionName = animationFunctionName;
+		this->animationFunctionName = cleanAnimationFunctionName;
 	}
 
 	// Rotation related?

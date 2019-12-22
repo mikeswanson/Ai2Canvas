@@ -53,7 +53,7 @@ void CanvasCollection::Render()
 // Find a canvas, returns NULL if not found
 Canvas* CanvasCollection::Find(const std::string& id)
 {
-	Canvas* result = NULL;
+	Canvas* result = nullptr;
 
 	// Loop through canvases
 	for (unsigned int i = 0; i < canvases.size(); i++)

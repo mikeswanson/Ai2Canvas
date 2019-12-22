@@ -54,7 +54,7 @@ namespace CanvasExport
 		AnimationClock		pathClock;						// Clock for the animation path
 
 		unsigned int		index;							// JavaScript animation array index
-		AIArtHandle			artHandle;						// Handle to art tree
+		AIArtHandle			rootArtHandle;					// Handle to art tree
 		std::vector<BezierInfo>	beziers;					// Bezier segments (for arc-length calculations)
 		float				segmentLength;					// Computed linear segment length
 

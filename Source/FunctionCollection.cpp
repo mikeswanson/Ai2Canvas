@@ -301,7 +301,7 @@ void FunctionCollection::ResolveTriggers(std::vector<Trigger*>& triggers)
 		Trigger* trigger = triggers[i];
 
 		// Try to resolve
-		Function* function = NULL;
+		Function* function = nullptr;
 		if (ResolveTriggerFunction(*trigger, &function))
 		{
 			// Bind
@@ -335,11 +335,11 @@ bool FunctionCollection::ResolveTriggerFunction(Trigger& trigger, Function** fun
 	bool result = false;
 
 	// Is this an animation function?
-	Function* searchFunction = NULL;
+	Function* searchFunction = nullptr;
 	searchFunction = Find(trigger.sourceObject, Function::kAnimationFunction);
 
 	// Find anything?
-	if (searchFunction != NULL)
+	if (searchFunction != nullptr)
 	{
 		// Return function
 		*function = searchFunction;
@@ -361,7 +361,7 @@ bool FunctionCollection::ResolveTriggerFunction(Trigger& trigger, Function** fun
 		searchFunction = FindDrawFunction(trigger.sourceObject, isLast);
 
 		// Find anything?
-		if (searchFunction != NULL)
+		if (searchFunction != nullptr)
 		{
 			// Return function
 			*function = searchFunction;
@@ -421,7 +421,7 @@ bool const FunctionCollection::HasValidTriggers()
 
 Function* FunctionCollection::Find(const std::string& name, const Function::FunctionType& functionType)
 {
-	Function* function = NULL;
+	Function* function = nullptr;
 
 	// Any functions to search?
 	size_t i = functions.size();
@@ -504,7 +504,7 @@ DrawFunction* FunctionCollection::AddDrawFunction(const std::string& name)
 			// It's not the most recent function, so we have to make it unique
 
 			// Need a new function
-			drawFunction = NULL;
+			drawFunction = nullptr;
 
 			// Generate unique name
 			uniqueName = CreateUniqueName(uniqueName);
@@ -541,7 +541,7 @@ DrawFunction* FunctionCollection::AddDrawFunction(const std::string& name)
 // TODO: Any way we can clean this up? Seems a bit convoluted.
 DrawFunction* FunctionCollection::FindDrawFunction(const std::string& name, bool& isLast)
 {
-	DrawFunction* drawFunction = NULL;
+	DrawFunction* drawFunction = nullptr;
 
 	// By default
 	isLast = false;

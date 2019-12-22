@@ -318,7 +318,7 @@ std::string CanvasExport::GetUniqueFileName(const std::string& path, const std::
 
 void CanvasExport::WriteArtTree()
 {
-	AILayerHandle layerHandle = NULL;
+	AILayerHandle layerHandle = nullptr;
 	ai::int32 layerCount = 0;
 
 	// How many layers in this document?
@@ -331,7 +331,7 @@ void CanvasExport::WriteArtTree()
 		sAILayer->GetNthLayer(i, &layerHandle);
 
 		// Get the first art in this layer
-		AIArtHandle artHandle = NULL;
+		AIArtHandle artHandle = nullptr;
 		sAIArt->GetFirstArtOfLayer(layerHandle, &artHandle);
 
 		// Dig in
@@ -364,7 +364,7 @@ void CanvasExport::WriteArtTree(AIArtHandle artHandle, int depth)
 		// Any children?
 		AIArtHandle childArtHandle;
 		sAIArt->GetArtFirstChild(artHandle, &childArtHandle);
-		if (childArtHandle != NULL)
+		if (childArtHandle != nullptr)
 		{
 			WriteArtTree(childArtHandle, depth + 1);
 		}
@@ -372,5 +372,5 @@ void CanvasExport::WriteArtTree(AIArtHandle artHandle, int depth)
 		// Find the next sibling
 		sAIArt->GetArtSibling(artHandle, &artHandle);
 	}
-	while (artHandle != NULL);
+	while (artHandle != nullptr);
 }

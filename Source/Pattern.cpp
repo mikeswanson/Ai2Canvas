@@ -30,7 +30,7 @@ CanvasExport::Pattern::Pattern()
 {
 	// Initialize Pattern
 	this->name = "";
-	this->patternHandle = NULL;
+	this->patternHandle = nullptr;
 	this->canvasIndex = -1;
 	this->isSymbol = false;
 	this->hasGradients = false;

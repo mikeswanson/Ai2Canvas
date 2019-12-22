@@ -63,7 +63,7 @@ bool PatternCollection::HasSymbols()
 bool PatternCollection::Add(AIPatternHandle patternHandle, bool isSymbol)
 {
 	// Track whether or not this pattern exists
-	bool patternExists = (Find(patternHandle) != NULL);
+	bool patternExists = (Find(patternHandle) != nullptr);
 
 	// Does it already exist?
 	if (!patternExists)
@@ -104,7 +104,7 @@ bool PatternCollection::Add(AIPatternHandle patternHandle, bool isSymbol)
 // Find a pattern, returns NULL if not found
 CanvasExport::Pattern* PatternCollection::Find(AIPatternHandle patternHandle)
 {
-	Pattern* result = NULL;
+	Pattern* result = nullptr;
 
 	// Loop through patterns
 	for (unsigned int i = 0; i < patterns.size(); i++)
