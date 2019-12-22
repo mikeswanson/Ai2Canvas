@@ -39,7 +39,7 @@ namespace CanvasExport
 		enum FunctionType { kAnyFunction, kDrawFunction, kAnimationFunction };
 
 		Function();
-		~Function();
+		virtual ~Function();
 
 		FunctionType		type;					// Type of this function (not very OO, but it works)
 		std::string			name;					// Name of the function
