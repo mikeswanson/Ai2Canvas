@@ -27,7 +27,6 @@
 #include "Plugin.hpp"
 #include "Ai2CanvasID.h"
 #include "Ai2CanvasSuites.h"
-#include "SDKDef.h"
 #include "SDKAboutPluginsHelper.h"
 
 #define kMaxStringLength 256
