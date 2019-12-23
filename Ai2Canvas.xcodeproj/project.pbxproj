@@ -57,7 +57,6 @@
 		2AF5F8660CF5F6CF0091D961 /* IThrowException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5F8640CF5F6CF0091D961 /* IThrowException.cpp */; };
 		2AF5F86B0CF5F6F60091D961 /* IAIFilePath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5F8680CF5F6F60091D961 /* IAIFilePath.cpp */; };
 		2AF5F86C0CF5F6F60091D961 /* IAIUnicodeString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5F8690CF5F6F60091D961 /* IAIUnicodeString.cpp */; };
-		4CCC1D0123B0911300A766D3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4CCC1D0023B0911300A766D3 /* Info.plist */; };
 		F938CB5A0B8B9D8D0039754D /* Ai2Canvas.r in Rez */ = {isa = PBXBuildFile; fileRef = F938CB590B8B9D8D0039754D /* Ai2Canvas.r */; };
 /* End PBXBuildFile section */
 
@@ -311,7 +310,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CCC1D0123B0911300A766D3 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
