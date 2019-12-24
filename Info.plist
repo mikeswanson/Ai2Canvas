@@ -21,11 +21,11 @@
 	<key>CFBundlePackageType</key>
 	<string>ARPI</string>
 	<key>CFBundleShortVersionString</key>
-	<string>$(PROJECTNAME) 1.5</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleSignature</key>
 	<string>ART5</string>
 	<key>CFBundleVersion</key>
-	<string>1.5</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>CSResourcesFileMapped</key>
 	<true/>
 	<key>LSRequiresCarbon</key>
