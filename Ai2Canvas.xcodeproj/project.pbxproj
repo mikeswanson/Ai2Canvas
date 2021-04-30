@@ -256,11 +256,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 508817D709F0C9AE0071BF1A /* Build configuration list for PBXNativeTarget "Ai2Canvas" */;
 			buildPhases = (
+				4CE9035F263CBF8D003C7CAD /* ShellScript */,
 				6EE2BA0A0A40B76300CC7CE2 /* Headers */,
 				508817D109F0C9AD0071BF1A /* Sources */,
 				508817D009F0C9AD0071BF1A /* Resources */,
 				508817D209F0C9AD0071BF1A /* Frameworks */,
 				6EE2BA0C0A40B77400CC7CE2 /* Rez */,
+				4CE90360263CBFA8003C7CAD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -326,6 +328,43 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXRezBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4CE9035F263CBF8D003C7CAD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "python ../../tools/pipl/create_pipl.py -input '[{\"name\":\"Ai2Canvas\"}]'\n";
+		};
+		4CE90360263CBFA8003C7CAD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "mkdir -p \"${CONFIGURATION_BUILD_DIR}/${PRODUCT_NAME}.aip/Contents/Resources/pipl\"\ncp -f \"plugin.pipl\" \"${CONFIGURATION_BUILD_DIR}/${PRODUCT_NAME}.aip/Contents/Resources/pipl/plugin.pipl\"\n\nexit\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		508817D109F0C9AD0071BF1A /* Sources */ = {
