@@ -1,6 +1,6 @@
 // Ai2CanvasPlugin.h
 //
-// Copyright (c) 2010-2014 Mike Swanson (http://blog.mikeswanson.com)
+// Copyright (c) 2010-2021 Mike Swanson (http://blog.mikeswanson.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -27,7 +27,6 @@
 #include "Plugin.hpp"
 #include "Ai2CanvasID.h"
 #include "Ai2CanvasSuites.h"
-#include "SDKDef.h"
 #include "SDKAboutPluginsHelper.h"
 
 #define kMaxStringLength 256
@@ -117,9 +116,5 @@ private:
 		@return kNoErr on success, other ASErr otherwise.
 	*/
 	ASErr WriteText(const char* pathName);
-	
-	/** Converts given C string into a Pascal string.
-	*/
-	void CStrToPStr(char *s, ai::UnicodeString::size_type len);
 };
 #endif // End Ai2CanvasPlugin.h

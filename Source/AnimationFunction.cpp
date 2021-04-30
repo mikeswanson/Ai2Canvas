@@ -1,6 +1,6 @@
 // AnimationFunction.cpp
 //
-// Copyright (c) 2010-2014 Mike Swanson (http://blog.mikeswanson.com)
+// Copyright (c) 2010-2021 Mike Swanson (http://blog.mikeswanson.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -32,7 +32,7 @@ AnimationFunction::AnimationFunction()
 
 	// Initialize AnimationFunction
 	this->index = 0;
-	this->artHandle = NULL;
+	this->rootArtHandle = nullptr;
 	this->segmentLength = 0.0f;
 
 	// Initialize path animation clock
@@ -61,7 +61,7 @@ void AnimationFunction::RenderInit(const AIRealRect& documentBounds)
 	sAIRealMath->AIRealMatrixConcatTranslate(&canvas->currentState->internalTransform, - 1 * documentBounds.left, documentBounds.top);
 
 	// Render animation
-	RenderArt(artHandle, 1);
+	RenderArt(rootArtHandle, 1);
 
 	outFile << "\n                    ];";
 
@@ -126,11 +126,11 @@ void AnimationFunction::RenderArt(AIArtHandle artHandle, unsigned int depth)
 		if (isArtVisible)
 		{
 			// Get type
-			short type = 0;
-			sAIArt->GetArtType(artHandle, &type);
+			short artType = 0;
+			sAIArt->GetArtType(artHandle, &artType);
 
 			// Process based on art type
-			switch (type)
+			switch (artType)
 			{
 				case kGroupArt:
 				{
@@ -154,13 +154,13 @@ void AnimationFunction::RenderArt(AIArtHandle artHandle, unsigned int depth)
 		// Find the next sibling
 		sAIArt->GetArtSibling(artHandle, &artHandle);
 	}
-	while (artHandle != nil);
+	while (artHandle != nullptr);
 }
 
 void AnimationFunction::RenderGroupArt(AIArtHandle artHandle, unsigned int depth)
 {
 	// Get the first art element in the group
-	AIArtHandle childArtHandle = nil;
+	AIArtHandle childArtHandle = nullptr;
 	sAIArt->GetArtFirstChild(artHandle, &childArtHandle);
 
 	// Render this sub-group
@@ -170,7 +170,7 @@ void AnimationFunction::RenderGroupArt(AIArtHandle artHandle, unsigned int depth
 void AnimationFunction::RenderCompoundPathArt(AIArtHandle artHandle, unsigned int depth)
 {
 	// Get the first art element in the group
-	AIArtHandle childArtHandle = nil;
+	AIArtHandle childArtHandle = nullptr;
 	sAIArt->GetArtFirstChild(artHandle, &childArtHandle);
 
 	// Render this sub-group
@@ -202,7 +202,7 @@ void AnimationFunction::RenderPathArt(AIArtHandle artHandle, unsigned int depth)
 			}
 
 		}
-		while (isCompound && (artHandle != nil));
+		while (isCompound && (artHandle != nullptr));
 	}
 }
 
@@ -301,13 +301,13 @@ void AnimationFunction::RenderSegment(AIPathSegment& previousSegment, AIPathSegm
 	const AIReal FLATNESS = 1e-2f; // Adobe recommended value
 	AIRealBezier b;
 	sAIRealBezier->Set(&b, &previousSegment.p, &p1, &p2, &segment.p);
-	AIReal segmentLength = sAIRealBezier->Length(&b, FLATNESS);
+	AIReal bezierSegmentLength = sAIRealBezier->Length(&b, FLATNESS);
 	//outFile << "\n" << Indent(depth) << "              // Length = " << setiosflags(ios::fixed) << setprecision(2) << segmentLength;
 
 	// Remember for later
 	BezierInfo bi;
 	bi.b = b;
-	bi.length = segmentLength;
+	bi.length = bezierSegmentLength;
 	beziers.push_back(bi);
 }
 

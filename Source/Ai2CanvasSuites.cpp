@@ -1,6 +1,6 @@
 // Ai2CanvasSuites.cpp
 //
-// Copyright (c) 2010-2014 Mike Swanson (http://blog.mikeswanson.com)
+// Copyright (c) 2010-2021 Mike Swanson (http://blog.mikeswanson.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -25,44 +25,44 @@
 
 extern "C"
 {
-	AIUnicodeStringSuite*	sAIUnicodeString = NULL;
-	SPBlocksSuite*			sSPBlocks = NULL;
-	AIFileFormatSuite*		sAIFileFormat = NULL;
-	AIDocumentSuite*		sAIDocument = NULL;
-	AITextFrameSuite*		sAITextFrame = NULL;
-	AIArtSuite*				sAIArt = NULL;
-	AIPathSuite*			sAIPath = NULL;
-	AIMatchingArtSuite*		sAIMatchingArt = NULL;
-	AIMdMemorySuite*		sAIMdMemory = NULL;
+	AIUnicodeStringSuite*	sAIUnicodeString = nullptr;
+	SPBlocksSuite*			sSPBlocks = nullptr;
+	AIFileFormatSuite*		sAIFileFormat = nullptr;
+	AIDocumentSuite*		sAIDocument = nullptr;
+	AITextFrameSuite*		sAITextFrame = nullptr;
+	AIArtSuite*				sAIArt = nullptr;
+	AIPathSuite*			sAIPath = nullptr;
+	AIMatchingArtSuite*		sAIMatchingArt = nullptr;
+	AIMdMemorySuite*		sAIMdMemory = nullptr;
 	EXTERN_TEXT_SUITES
 
 	// Added for Ai2Canvas functionality
-	AIPathStyleSuite *sAIPathStyle = NULL;
-	AIHardSoftSuite *sAIHardSoft = NULL;
-	AIRealMathSuite *sAIRealMath = NULL;
-	AIGradientSuite *sAIGradient = NULL;
-	AIMaskSuite *sAIMask = NULL;
-	AIPluginGroupSuite *sAIPluginGroup = NULL;
-	AICustomColorSuite *sAICustomColor = NULL;
-	AIColorConversionSuite *sAIColorConversion = NULL;
-	AIBlendStyleSuite *sAIBlendStyle = NULL;
-	AILayerSuite *sAILayer = NULL;
-	AIATEPaintSuite *sATEPaint = NULL;
-	AIFontSuite *sAIFont = NULL;
-	AIATETextUtilSuite *sATETextUtil = NULL;
-	AIDataFilterSuite *sAIDataFilter = NULL;
-	AISymbolSuite *sAISymbol = NULL;
-	AIPatternSuite *sAIPattern = NULL;
-	AIPlacedSuite *sAIPlaced = NULL;
-	AIRasterSuite *sAIRaster = NULL;
-	AIImageOptSuite *sAIImageOpt = NULL;
-	AIArtStyleSuite *sAIArtStyle = NULL;
-	AIArtStyleParserSuite *sAIArtStyleParser = NULL;
-	AILiveEffectSuite *sAILiveEffect = NULL;
-	AIDictionarySuite *sAIDictionary = NULL;
-	AIDictionaryIteratorSuite *sAIDictionaryIterator = NULL;
-	AIEntrySuite *sAIEntry = NULL;
-	AIRealBezierSuite *sAIRealBezier = NULL;
+	AIPathStyleSuite *sAIPathStyle = nullptr;
+	AIHardSoftSuite *sAIHardSoft = nullptr;
+	AIRealMathSuite *sAIRealMath = nullptr;
+	AIGradientSuite *sAIGradient = nullptr;
+	AIMaskSuite *sAIMask = nullptr;
+	AIPluginGroupSuite *sAIPluginGroup = nullptr;
+	AICustomColorSuite *sAICustomColor = nullptr;
+	AIColorConversionSuite *sAIColorConversion = nullptr;
+	AIBlendStyleSuite *sAIBlendStyle = nullptr;
+	AILayerSuite *sAILayer = nullptr;
+	AIATEPaintSuite *sATEPaint = nullptr;
+	AIFontSuite *sAIFont = nullptr;
+	AIATETextUtilSuite *sATETextUtil = nullptr;
+	AIDataFilterSuite *sAIDataFilter = nullptr;
+	AISymbolSuite *sAISymbol = nullptr;
+	AIPatternSuite *sAIPattern = nullptr;
+	AIPlacedSuite *sAIPlaced = nullptr;
+	AIRasterSuite *sAIRaster = nullptr;
+	AIImageOptSuite *sAIImageOpt = nullptr;
+	AIArtStyleSuite *sAIArtStyle = nullptr;
+	AIArtStyleParserSuite *sAIArtStyleParser = nullptr;
+	AILiveEffectSuite *sAILiveEffect = nullptr;
+	AIDictionarySuite *sAIDictionary = nullptr;
+	AIDictionaryIteratorSuite *sAIDictionaryIterator = nullptr;
+	AIEntrySuite *sAIEntry = nullptr;
+	AIRealBezierSuite *sAIRealBezier = nullptr;
 };
 
 ImportSuite gImportSuites[] = 
@@ -106,7 +106,7 @@ ImportSuite gImportSuites[] =
 	kAIRealBezierSuite, kAIRealBezierSuiteVersion, &sAIRealBezier,
 
 	IMPORT_TEXT_SUITES
-	nil, 0, nil
+	nullptr, 0, nullptr
 };
 
 

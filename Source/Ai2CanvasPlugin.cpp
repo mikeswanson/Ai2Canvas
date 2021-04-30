@@ -1,6 +1,6 @@
 // Ai2CanvasPlugin.cpp
 //
-// Copyright (c) 2010-2014 Mike Swanson (http://blog.mikeswanson.com)
+// Copyright (c) 2010-2021 Mike Swanson (http://blog.mikeswanson.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -119,13 +119,13 @@ ASErr Ai2CanvasPlugin::GoMenuItem(AIMenuMessage* message)
 		SDKAboutPluginsHelper aboutPluginsHelper;
 
 		#ifdef MAC_ENV
-			aboutPluginsHelper.PopAboutBox(message, "Ai->Canvas Export Plug-In 1.3 (Mac)", "Copyright 2010-2014 Mike Swanson\nAll rights reserved\nhttp://blog.mikeswanson.com/");
+			aboutPluginsHelper.PopAboutBox(message, "Ai->Canvas Export Plug-In 1.6 (Mac)", "Copyright 2010-2021 Mike Swanson\nAll rights reserved\nhttp://blog.mikeswanson.com/");
 		#endif 
 		#ifdef WIN_ENV
 		#ifdef _WIN64
-			aboutPluginsHelper.PopAboutBox(message, "Ai->Canvas Export Plug-In 1.3 (PC/64)", "Copyright 2010-2014 Mike Swanson\nAll rights reserved\nhttp://blog.mikeswanson.com/");
+			aboutPluginsHelper.PopAboutBox(message, "Ai->Canvas Export Plug-In 1.6 (PC/64)", "Copyright 2010-2021 Mike Swanson\nAll rights reserved\nhttp://blog.mikeswanson.com/");
 		#else
-			aboutPluginsHelper.PopAboutBox(message, "Ai->Canvas Export Plug-In 1.3 (PC/32)", "Copyright 2010-2014 Mike Swanson\nAll rights reserved\nhttp://blog.mikeswanson.com/");
+			aboutPluginsHelper.PopAboutBox(message, "Ai->Canvas Export Plug-In 1.6 (PC/32)", "Copyright 2010-2021 Mike Swanson\nAll rights reserved\nhttp://blog.mikeswanson.com/");
 		#endif
 		#endif 
 	}	
@@ -152,10 +152,9 @@ ASErr Ai2CanvasPlugin::AddFileFormats(SPInterfaceMessage* message)
 	PlatformAddFileFormatData affd;
 	char pstrCanvas[kMaxStringLength] = "<canvas>";
 	
-	this->CStrToPStr(pstrCanvas, kMaxStringLength);
-	affd.title = (unsigned char*)pstrCanvas;
+	affd.title = ai::UnicodeString::FromRoman(pstrCanvas);
 	affd.titleOrder = 0;
-	affd.extension = "html";
+	affd.extension = ai::UnicodeString::FromRoman("html");
 	
 	error = sAIFileFormat->AddFileFormat( message->d.self, "<canvas>",
 				                          &affd, kFileFormatExport,
@@ -187,15 +186,15 @@ ASErr Ai2CanvasPlugin::WriteText(const char* pathName)
 
 	#ifdef MAC_ENV
 		// Determine if shift key is being held down (can't distinguish between left/right shift keys using this method on OS X)
-//		bool debug = ((GetCurrentKeyModifiers() & (1 << shiftKeyBit)) != 0);
+//		bool debugActivated = ((GetCurrentKeyModifiers() & (1 << shiftKeyBit)) != 0);
     
-        bool debug = (CGEventSourceFlagsState(kCGEventSourceStateHIDSystemState) & kCGEventFlagMaskShift);
+        bool debugActivated = (CGEventSourceFlagsState(kCGEventSourceStateHIDSystemState) & kCGEventFlagMaskShift);
     
 		openFile = true;
 	#endif 
 	#ifdef WIN_ENV
 		// Determine if the left shift key is being held down (to indicate previewing HTML file after export)
-		bool debug = ((GetKeyState(VK_LSHIFT) &0x1000) != 0);
+		bool debugActivated = ((GetKeyState(VK_LSHIFT) &0x1000) != 0);
 		openFile = true;
 	#endif 
 
@@ -205,7 +204,7 @@ ASErr Ai2CanvasPlugin::WriteText(const char* pathName)
 	{
 		// Set debug mode
 		//CanvasExport::debug = (openFile != 0);
-		CanvasExport::debug = debug;
+		CanvasExport::debug = debugActivated;
 
 		// Create a new document
 		Document* document = new Document(file);
@@ -242,21 +241,6 @@ ASErr Ai2CanvasPlugin::WriteText(const char* pathName)
 	#endif 
 
 	return error;
-}
-
-/////////////////////////////////////////
-//
-// Utility functions
-//
-/////////////////////////////////////////
-
-/*
-*/
-void Ai2CanvasPlugin::CStrToPStr(char *s, ai::UnicodeString::size_type len)
-{
-	const ai::UnicodeString sAsUnicode((const char*)s);
-	ai::PStr sAsPStr((unsigned char*) s);
-	sAsUnicode.getToBuffer(sAsPStr, len, kAIUTF8CharacterEncoding );
 }
 
 // End Ai2CanvasPlugin.cpp

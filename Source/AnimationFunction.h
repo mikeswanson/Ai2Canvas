@@ -1,6 +1,6 @@
 // AnimationFunction.h
 //
-// Copyright (c) 2010-2014 Mike Swanson (http://blog.mikeswanson.com)
+// Copyright (c) 2010-2021 Mike Swanson (http://blog.mikeswanson.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -54,7 +54,7 @@ namespace CanvasExport
 		AnimationClock		pathClock;						// Clock for the animation path
 
 		unsigned int		index;							// JavaScript animation array index
-		AIArtHandle			artHandle;						// Handle to art tree
+		AIArtHandle			rootArtHandle;					// Handle to art tree
 		std::vector<BezierInfo>	beziers;					// Bezier segments (for arc-length calculations)
 		float				segmentLength;					// Computed linear segment length
 

@@ -1,6 +1,6 @@
 // PatternCollection.cpp
 //
-// Copyright (c) 2010-2014 Mike Swanson (http://blog.mikeswanson.com)
+// Copyright (c) 2010-2021 Mike Swanson (http://blog.mikeswanson.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -63,7 +63,7 @@ bool PatternCollection::HasSymbols()
 bool PatternCollection::Add(AIPatternHandle patternHandle, bool isSymbol)
 {
 	// Track whether or not this pattern exists
-	bool patternExists = (Find(patternHandle) != NULL);
+	bool patternExists = (Find(patternHandle) != nullptr);
 
 	// Does it already exist?
 	if (!patternExists)
@@ -104,7 +104,7 @@ bool PatternCollection::Add(AIPatternHandle patternHandle, bool isSymbol)
 // Find a pattern, returns NULL if not found
 CanvasExport::Pattern* PatternCollection::Find(AIPatternHandle patternHandle)
 {
-	Pattern* result = NULL;
+	Pattern* result = nullptr;
 
 	// Loop through patterns
 	for (unsigned int i = 0; i < patterns.size(); i++)

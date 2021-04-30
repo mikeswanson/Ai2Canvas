@@ -1,6 +1,6 @@
 // Document.cpp
 //
-// Copyright (c) 2010-2014 Mike Swanson (http://blog.mikeswanson.com)
+// Copyright (c) 2010-2021 Mike Swanson (http://blog.mikeswanson.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -24,14 +24,14 @@
 #include "Document.h"
 
 // Current plug-in version
-#define PLUGIN_VERSION "1.3"
+#define PLUGIN_VERSION "1.6"
 
 using namespace CanvasExport;
 
 Document::Document(const std::string& pathName)
 {
 	// Initialize Document
-	this->canvas = NULL;
+	this->canvas = nullptr;
 	this->fileName = "";
 	this->hasAnimation = false;
 
@@ -221,7 +221,7 @@ void Document::ParseLayers()
 		// Tokenize the options
 		std::vector<std::string> options = Tokenize(optionValue, ";");
 
-		Function* function = NULL;
+		Function* function = nullptr;
 
 		// Is this an animation?
 		if (HasAnimationOption(options))
@@ -231,7 +231,7 @@ void Document::ParseLayers()
 			AnimationFunction* animationFunction = functions.AddAnimationFunction(name);
 
 			// Set values
-			animationFunction->artHandle = layers[i]->artHandle;
+			animationFunction->rootArtHandle = layers[i]->artHandle;
 			animationFunction->canvas = canvas;
 
 			// Set pointer
@@ -610,7 +610,7 @@ void Document::SetFunctionOptions(const std::vector<std::string>& options, Funct
 //   Track if gradient fills are used by visible artwork per layer
 void Document::ScanDocument()
 {
-	AILayerHandle layerHandle = NULL;
+	AILayerHandle layerHandle = nullptr;
 	ai::int32 layerCount = 0;
 
 	// How many layers in this document?
@@ -618,7 +618,7 @@ void Document::ScanDocument()
 
 	// Loop through all layers backwards
 	// We loop backwards, since the HTML5 canvas element uses a "painter model"
-	for (long i = (layerCount - 1); i > -1; i--)
+	for (ai::int32 i = (layerCount - 1); i > -1; i--)
 	{
 		// Get a reference to the layer
 		sAILayer->GetNthLayer(i, &layerHandle);
@@ -646,7 +646,7 @@ void Document::ScanDocument()
 void Document::ScanLayer(Layer& layer)
 {
 	// Get the first art in this layer
-	AIArtHandle artHandle = NULL;
+	AIArtHandle artHandle = nullptr;
 	sAIArt->GetFirstArtOfLayer(layer.layerHandle, &artHandle);
 
 	// Remember artwork handle
@@ -686,7 +686,7 @@ void Document::ScanLayerArtwork(AIArtHandle artHandle, unsigned int depth, Layer
 			if (type == kSymbolArt)
 			{
 				// Get the symbol pattern
-				AIPatternHandle symbolPatternHandle = nil;
+				AIPatternHandle symbolPatternHandle = nullptr;
 				sAISymbol->GetSymbolPatternOfSymbolArt(artHandle, &symbolPatternHandle);
 
 				// Add the symbol pattern
@@ -695,7 +695,7 @@ void Document::ScanLayerArtwork(AIArtHandle artHandle, unsigned int depth, Layer
 				// If we added a new pattern, scan its artwork
 				if (added)
 				{
-					AIArtHandle patternArtHandle = NULL;
+					AIArtHandle patternArtHandle = nullptr;
 					sAIPattern->GetPatternArt(symbolPatternHandle, &patternArtHandle);
 
 					// Look inside, but don't screw up bounds for our current layer
@@ -712,11 +712,11 @@ void Document::ScanLayerArtwork(AIArtHandle artHandle, unsigned int depth, Layer
 			else if (type == kPluginArt)
 			{
 				// Get the result art handle
-				AIArtHandle resultArtHandle = NULL;
+				AIArtHandle resultArtHandle = nullptr;
 				sAIPluginGroup->GetPluginArtResultArt(artHandle, &resultArtHandle);
 
 				// Get the first art element in the result group
-				AIArtHandle childArtHandle = NULL;
+				AIArtHandle childArtHandle = nullptr;
 				sAIArt->GetArtFirstChild(resultArtHandle, &childArtHandle);
 
 				// Look inside the result group
@@ -733,7 +733,8 @@ void Document::ScanLayerArtwork(AIArtHandle artHandle, unsigned int depth, Layer
 
 			// Get the style for this artwork
 			AIPathStyle style;
-			sAIPathStyle->GetPathStyle(artHandle, &style);
+			AIBoolean outHasAdvFill = false;
+			sAIPathStyle->GetPathStyle(artHandle, &style, &outHasAdvFill);
 
 			// Does this artwork use a pattern fill or a gradient?
 			if (style.fillPaint)
@@ -760,6 +761,7 @@ void Document::ScanLayerArtwork(AIArtHandle artHandle, unsigned int depth, Layer
                     case kCustomColor:
                     case kThreeColor:
                     case kNoneColor:
+                    case kAdvanceColor:
                     {
                         break;
                     }
@@ -791,6 +793,7 @@ void Document::ScanLayerArtwork(AIArtHandle artHandle, unsigned int depth, Layer
                     case kCustomColor:
                     case kThreeColor:
                     case kNoneColor:
+                    case kAdvanceColor:
                     {
                         break;
                     }
@@ -798,7 +801,7 @@ void Document::ScanLayerArtwork(AIArtHandle artHandle, unsigned int depth, Layer
 			}
 
 			// See if this artwork has any children
-			AIArtHandle childArtHandle = NULL;
+			AIArtHandle childArtHandle = nullptr;
 			sAIArt->GetArtFirstChild(artHandle, &childArtHandle);
 
 			// Did we find anything?
@@ -812,7 +815,7 @@ void Document::ScanLayerArtwork(AIArtHandle artHandle, unsigned int depth, Layer
 		// Find the next sibling
 		sAIArt->GetArtSibling(artHandle, &artHandle);
 	}
-	while (artHandle != NULL);
+	while (artHandle != nullptr);
 }
 
 // Creates the JavaScript animation file (if it doesn't already exist)
@@ -1443,7 +1446,7 @@ void Document::RenderSymbolFunctions()
 				}
 
 				// Get a handle to the pattern art
-				AIArtHandle patternArtHandle = nil;
+				AIArtHandle patternArtHandle = nullptr;
 				sAIPattern->GetPatternArt(pattern->patternHandle, &patternArtHandle);
 
 				// While we're here, get the size of this canvas
@@ -1459,24 +1462,24 @@ void Document::RenderSymbolFunctions()
 				}
 
 				// Create canvas and set size
-				Canvas* canvas = new Canvas("canvas", &resources);			// No need to add it to the collection, since it doesn't represent a canvas element
-				canvas->contextName = "ctx";
-				canvas->width = bounds.right - bounds.left;
-				canvas->height = bounds.top - bounds.bottom;
-				canvas->currentState->isProcessingSymbol = true;
+				Canvas* symbolCanvas = new Canvas("canvas", &resources);			// No need to add it to the collection, since it doesn't represent a canvas element
+				symbolCanvas->contextName = "ctx";
+				symbolCanvas->width = bounds.right - bounds.left;
+				symbolCanvas->height = bounds.top - bounds.bottom;
+				symbolCanvas->currentState->isProcessingSymbol = true;
 
 				// Get the first art element in the symbol
-				AIArtHandle childArtHandle = NULL;
+				AIArtHandle childArtHandle = nullptr;
 				sAIArt->GetArtFirstChild(patternArtHandle, &childArtHandle);
 
 				// Render this sub-group
-				canvas->RenderArt(childArtHandle, 1);
+				symbolCanvas->RenderArt(childArtHandle, 1);
 
 				// Restore remaining state
-				canvas->SetContextDrawingState(1);
+				symbolCanvas->SetContextDrawingState(1);
 
 				// Free the canvas
-				delete canvas;
+				delete symbolCanvas;
 
 				// End function block
 				outFile << "\n    }";
@@ -1521,16 +1524,16 @@ void Document::RenderPatternFunction()
 				contextName << "ctx" << pattern->canvasIndex;
 
 				// Create canvas for this pattern
-				Canvas* canvas = canvases.Add(canvasID.str(), contextName.str(), &resources);
-				canvas->isHidden = true;
-				canvas->currentState->isProcessingSymbol = false;
+				Canvas* patternCanvas = canvases.Add(canvasID.str(), contextName.str(), &resources);
+				patternCanvas->isHidden = true;
+				patternCanvas->currentState->isProcessingSymbol = false;
 
 				// Render context commands
-				outFile << "\n\n" << Indent(1) << "var " << canvas->id << " = document.getElementById(\"" << canvas->id << "\");";
-				outFile << "\n" << Indent(1) << "var " << canvas->contextName << " = " << canvas->id << ".getContext(\"2d\");";
+				outFile << "\n\n" << Indent(1) << "var " << patternCanvas->id << " = document.getElementById(\"" << patternCanvas->id << "\");";
+				outFile << "\n" << Indent(1) << "var " << patternCanvas->contextName << " = " << patternCanvas->id << ".getContext(\"2d\");";
 
 				// Get a handle to the pattern art
-				AIArtHandle patternArtHandle = nil;
+				AIArtHandle patternArtHandle = nullptr;
 				sAIPattern->GetPatternArt(pattern->patternHandle, &patternArtHandle);
 
 				// While we're here, get the size of this canvas
@@ -1546,33 +1549,33 @@ void Document::RenderPatternFunction()
 				}
 
 				// Set canvas size
-				canvas->width = bounds.right - bounds.left;
-				canvas->height = bounds.top - bounds.bottom;
+				patternCanvas->width = bounds.right - bounds.left;
+				patternCanvas->height = bounds.top - bounds.bottom;
 
 				// If this isn't a symbol, modify the transformation
 				if (!pattern->isSymbol)
 				{
 					// Set internal transform
 					// TODO: While this works, it seems awfully convoluted
-					sAIRealMath->AIRealMatrixSetIdentity(&canvas->currentState->internalTransform);
-					sAIRealMath->AIRealMatrixConcatScale(&canvas->currentState->internalTransform, 1,  - 1);
-					sAIRealMath->AIRealMatrixConcatTranslate(&canvas->currentState->internalTransform,  - 1 * bounds.left, bounds.top);
-					sAIRealMath->AIRealMatrixConcatScale(&canvas->currentState->internalTransform, 1,  - 1);
-					sAIRealMath->AIRealMatrixConcatTranslate(&canvas->currentState->internalTransform,  0, canvas->height);
+					sAIRealMath->AIRealMatrixSetIdentity(&patternCanvas->currentState->internalTransform);
+					sAIRealMath->AIRealMatrixConcatScale(&patternCanvas->currentState->internalTransform, 1,  - 1);
+					sAIRealMath->AIRealMatrixConcatTranslate(&patternCanvas->currentState->internalTransform,  - 1 * bounds.left, bounds.top);
+					sAIRealMath->AIRealMatrixConcatScale(&patternCanvas->currentState->internalTransform, 1,  - 1);
+					sAIRealMath->AIRealMatrixConcatTranslate(&patternCanvas->currentState->internalTransform,  0, patternCanvas->height);
 				}
 
 				// This canvas shound be hidden, since it's only used for the pattern artwork
-				canvas->isHidden = true;
+				patternCanvas->isHidden = true;
 
 				// Get the first art element in the pattern
-				AIArtHandle childArtHandle = NULL;
+				AIArtHandle childArtHandle = nullptr;
 				sAIArt->GetArtFirstChild(patternArtHandle, &childArtHandle);
 
 				// Render this sub-group
-				canvas->RenderArt(childArtHandle, 1);
+				patternCanvas->RenderArt(childArtHandle, 1);
 
 				// Restore remaining state
-				canvas->SetContextDrawingState(1);
+				patternCanvas->SetContextDrawingState(1);
 			}
 		}
 

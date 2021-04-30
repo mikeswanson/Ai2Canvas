@@ -1,6 +1,6 @@
 // Utility.cpp
 //
-// Copyright (c) 2010-2014 Mike Swanson (http://blog.mikeswanson.com)
+// Copyright (c) 2010-2021 Mike Swanson (http://blog.mikeswanson.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -318,20 +318,20 @@ std::string CanvasExport::GetUniqueFileName(const std::string& path, const std::
 
 void CanvasExport::WriteArtTree()
 {
-	AILayerHandle layerHandle = NULL;
+	AILayerHandle layerHandle = nullptr;
 	ai::int32 layerCount = 0;
 
 	// How many layers in this document?
 	sAILayer->CountLayers(&layerCount);
 
 	// Loop through all layers
-	for (long i = 0; i < layerCount; i++)
+	for (ai::int32 i = 0; i < layerCount; i++)
 	{
 		// Get a reference to the layer
 		sAILayer->GetNthLayer(i, &layerHandle);
 
 		// Get the first art in this layer
-		AIArtHandle artHandle = NULL;
+		AIArtHandle artHandle = nullptr;
 		sAIArt->GetFirstArtOfLayer(layerHandle, &artHandle);
 
 		// Dig in
@@ -364,7 +364,7 @@ void CanvasExport::WriteArtTree(AIArtHandle artHandle, int depth)
 		// Any children?
 		AIArtHandle childArtHandle;
 		sAIArt->GetArtFirstChild(artHandle, &childArtHandle);
-		if (childArtHandle != NULL)
+		if (childArtHandle != nullptr)
 		{
 			WriteArtTree(childArtHandle, depth + 1);
 		}
@@ -372,5 +372,5 @@ void CanvasExport::WriteArtTree(AIArtHandle artHandle, int depth)
 		// Find the next sibling
 		sAIArt->GetArtSibling(artHandle, &artHandle);
 	}
-	while (artHandle != nil);
+	while (artHandle != nullptr);
 }

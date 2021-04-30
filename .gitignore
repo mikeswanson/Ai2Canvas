@@ -34,6 +34,7 @@ ipch/
 *.sdf
 *.cachefile
 *.exp
+.vs/
 
 # Xcode
 .DS_Store
@@ -54,3 +55,4 @@ DerivedData
 *.hmap
 *.xccheckout
 Ai2Canvas.build*/
+XCBuildData

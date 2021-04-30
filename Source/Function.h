@@ -1,6 +1,6 @@
 // Function.h
 //
-// Copyright (c) 2010-2014 Mike Swanson (http://blog.mikeswanson.com)
+// Copyright (c) 2010-2021 Mike Swanson (http://blog.mikeswanson.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -39,7 +39,7 @@ namespace CanvasExport
 		enum FunctionType { kAnyFunction, kDrawFunction, kAnimationFunction };
 
 		Function();
-		~Function();
+		virtual ~Function();
 
 		FunctionType		type;					// Type of this function (not very OO, but it works)
 		std::string			name;					// Name of the function
