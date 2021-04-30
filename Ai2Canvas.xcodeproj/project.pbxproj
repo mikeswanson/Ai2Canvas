@@ -592,7 +592,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CURRENT_PROJECT_VERSION = 0;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.6;
 				OTHER_CFLAGS = "";
 				REZ_SEARCH_PATHS = ./../common/mac;
 			};
@@ -604,7 +604,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CURRENT_PROJECT_VERSION = 0;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.6;
 				OTHER_CFLAGS = "";
 				REZ_SEARCH_PATHS = ./../common/mac;
 			};
