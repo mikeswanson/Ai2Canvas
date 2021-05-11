@@ -115,7 +115,7 @@ ASErr Ai2CanvasPlugin::Message(char* caller, char* selector, void *message)
 				char pathName[300];
 				msg->inParam.as_Roman(pathName, 300);
 
-				error = WriteText(pathName);
+				error = WriteText(pathName, false);
 				if (error == kNoErr)
 				{
 					outParam.append(ai::UnicodeString("Exported to: '"));
@@ -234,30 +234,25 @@ ASErr Ai2CanvasPlugin::GoFileFormat(AIFileFormatMessage* message)
 	if ( message->option & kFileFormatExport ) 
 	{
 		// Export our HTM canvas file
-		error = WriteText(pathName);
+		error = WriteText(pathName, true);
 	}
 	
 	return error;
 }
 
-ASErr Ai2CanvasPlugin::WriteText(const char* pathName)
+ASErr Ai2CanvasPlugin::WriteText(const char* pathName, AIBoolean openFile)
 {
 	ASErr error = kNoErr;
 	
-	AIBoolean openFile = false;
-
 	#ifdef MAC_ENV
 		// Determine if shift key is being held down (can't distinguish between left/right shift keys using this method on OS X)
 //		bool debugActivated = ((GetCurrentKeyModifiers() & (1 << shiftKeyBit)) != 0);
     
         bool debugActivated = (CGEventSourceFlagsState(kCGEventSourceStateHIDSystemState) & kCGEventFlagMaskShift);
-    
-		openFile = true;
 	#endif 
 	#ifdef WIN_ENV
 		// Determine if the left shift key is being held down (to indicate previewing HTML file after export)
 		bool debugActivated = ((GetKeyState(VK_LSHIFT) &0x1000) != 0);
-		openFile = true;
 	#endif 
 
 	// Create file
