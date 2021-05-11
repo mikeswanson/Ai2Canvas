@@ -21,6 +21,7 @@
 // THE SOFTWARE.
 
 #include "IllustratorSDK.h"
+#include "AIScriptMessage.h"
 #include "Ai2CanvasPlugin.h"
 
 // CanvasExport stuff
@@ -37,6 +38,8 @@
 #ifdef WIN_ENV
 	#include "shellapi.h"
 #endif 
+
+#define kSelectorAIScriptExport	"Export"
 
 using namespace CanvasExport;
 
@@ -75,24 +78,83 @@ ASErr Ai2CanvasPlugin::Message(char* caller, char* selector, void *message)
 {
 	ASErr error = kNoErr;
 
-	try {
-		error = Plugin::Message(caller, selector, message);
-	}
-	catch (ai::Error& ex) {
-		error = ex;
-	}
-	catch (...) {
-		error = kCantHappenErr;
-	}
-	if (error) {
-		if (error == kUnhandledMsgErr) {
-			// Defined by Plugin.hpp and used in Plugin::Message - ignore.
-			error = kNoErr;
+	// Is this command being sent from an Illustrator script?
+	if (strcmp(caller, kCallerAIScriptMessage) == 0)
+	{
+		bool isRecognizedCommand = false;
+
+		AIScriptMessage* msg = (AIScriptMessage*)message;
+		ai::UnicodeString outParam("");
+
+		// Export command?
+		if (strcmp(selector, kSelectorAIScriptExport) == 0)
+		{
+			isRecognizedCommand = true;
 		}
-		else {
-			Plugin::ReportError(error, caller, selector, message);
+		// Unrecognized command
+		else
+		{
+			isRecognizedCommand = false;
+
+			outParam.append(ai::UnicodeString("Unrecognized command: '"));
+			outParam.append(ai::UnicodeString(selector));
+			outParam.append(ai::UnicodeString("'"));
+			outParam.append(ai::UnicodeString(" (only valid command is '"));
+			outParam.append(ai::UnicodeString(kSelectorAIScriptExport));
+			outParam.append(ai::UnicodeString("')"));
 		}
-	}	
+
+		if (isRecognizedCommand)
+		{
+			if (msg->inParam.empty())
+			{
+				outParam.append(ai::UnicodeString("No output path provided"));
+			}
+			else
+			{
+				char pathName[300];
+				msg->inParam.as_Roman(pathName, 300);
+
+				error = WriteText(pathName);
+				if (error == kNoErr)
+				{
+					outParam.append(ai::UnicodeString("Exported to: '"));
+				}
+				else
+				{
+					outParam.append(ai::UnicodeString("Error exporting to: '"));
+				}
+
+				outParam.append(msg->inParam);
+				outParam.append(ai::UnicodeString("'"));
+			}
+		}
+
+		// Return the output message as a parameter
+		msg->outParam = outParam;
+	}
+	else
+	{
+		try {
+			error = Plugin::Message(caller, selector, message);
+		}
+		catch (ai::Error& ex) {
+			error = ex;
+		}
+		catch (...) {
+			error = kCantHappenErr;
+		}
+		if (error) {
+			if (error == kUnhandledMsgErr) {
+				// Defined by Plugin.hpp and used in Plugin::Message - ignore.
+				error = kNoErr;
+			}
+			else {
+				Plugin::ReportError(error, caller, selector, message);
+			}
+		}
+	}
+
 	return error;
 }
 
