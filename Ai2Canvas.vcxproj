@@ -276,9 +276,9 @@
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>.\Source;.\Resources;..\common\includes;..\..\illustratorapi\adm;..\..\illustratorapi\ate;..\..\illustratorapi\illustrator;..\..\illustratorapi\illustrator\actions;..\..\illustratorapi\pica_sp;..\..\illustratorapi\illustrator\legacy;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;WIN_ENV;WINNT_ENV;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <StructMemberAlignment>8Bytes</StructMemberAlignment>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>IllustratorSDK.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)Ai2Canvas.pch</PrecompiledHeaderOutputFile>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
@@ -295,6 +295,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <AdditionalOptions>/std:c++14 /Zc:sizedDealloc- %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
