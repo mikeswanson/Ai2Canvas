@@ -112,9 +112,9 @@ private:
 
 	/**	Writes the text to the file.
 		@param pathName IN path to file.
-		@param selectedTextOnly IN true to write only selected text, false to write all.
+		@param openFile IN true to open exported file.
 		@return kNoErr on success, other ASErr otherwise.
 	*/
-	ASErr WriteText(const char* pathName);
+	ASErr WriteText(const char* pathName, AIBoolean openFile);
 };
 #endif // End Ai2CanvasPlugin.h
