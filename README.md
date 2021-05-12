@@ -1,5 +1,4 @@
-Ai2Canvas
-=========
+# Ai2Canvas #
 
 By [Mike Swanson](http://blog.mikeswanson.com/)
 
@@ -9,11 +8,11 @@ This brief video (while a bit dated) provides an overview of the plug-in’s fun
 
 [![Ai2Canvas Overview](http://img.youtube.com/vi/L1W9AyK2MPc/0.jpg)](http://www.youtube.com/watch?v=L1W9AyK2MPc)
 
-## Requirements
+## Requirements ##
 
-This repository includes both a Visual Studio 2019 solution for PC (with both Win32 and x64 targets) and a Xcode 12.5 project for Mac. It also requires the Adobe Illustrator CC 2021 SDK.
+This repository includes both a Visual Studio 2019 solution for PC and a Xcode 12.5 project for Mac. It also requires the Adobe Illustrator CC 2021 SDK.
 
-## Getting Started
+## Getting Started ##
 
 Because the project depends on the Illustrator SDK and references many files using relative paths, it is important to place the project in the correct location.
 
@@ -27,6 +26,6 @@ Because the project depends on the Illustrator SDK and references many files usi
 
 If you decide to move the project, you will need to update the many relevant paths. As a historical note, Ai->Canvas started its life based on an older version of Adobe's _TextFileFormat_ sample, and it was easiest to create the new project in a parallel folder to keep the relative references intact.
 
-## Documentation
+## Documentation ##
 
 For more detail about how the plug-in works along with a full tutorial and extended documentation, visit the [Ai->Canvas Plug-In for Adobe Illustrator](http://blog.mikeswanson.com/ai2canvas) project page on my blog.
