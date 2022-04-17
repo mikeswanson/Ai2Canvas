@@ -345,7 +345,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "python ../../tools/pipl/create_pipl.py -input '[{\"name\":\"Ai2Canvas\"}]'\n";
+			shellScript = "python3 ../../tools/pipl/create_pipl.py -input '[{\"name\":\"Ai2Canvas\"}]'\n";
 		};
 		4CE90360263CBFA8003C7CAD /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
