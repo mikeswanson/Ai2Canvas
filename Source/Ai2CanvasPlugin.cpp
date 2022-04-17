@@ -1,6 +1,6 @@
 // Ai2CanvasPlugin.cpp
 //
-// Copyright (c) 2010-2021 Mike Swanson (http://blog.mikeswanson.com)
+// Copyright (c) 2010-2022 Mike Swanson (http://blog.mikeswanson.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -181,13 +181,13 @@ ASErr Ai2CanvasPlugin::GoMenuItem(AIMenuMessage* message)
 		SDKAboutPluginsHelper aboutPluginsHelper;
 
 		#ifdef MAC_ENV
-			aboutPluginsHelper.PopAboutBox(message, "Ai->Canvas Export Plug-In 1.6 (Mac)", "Copyright 2010-2021 Mike Swanson\nAll rights reserved\nhttp://blog.mikeswanson.com/");
+			aboutPluginsHelper.PopAboutBox(message, "Ai->Canvas Export Plug-In 1.7 (Mac)", "Copyright 2010-2022 Mike Swanson\nAll rights reserved\nhttp://blog.mikeswanson.com/");
 		#endif 
 		#ifdef WIN_ENV
 		#ifdef _WIN64
-			aboutPluginsHelper.PopAboutBox(message, "Ai->Canvas Export Plug-In 1.6 (PC/64)", "Copyright 2010-2021 Mike Swanson\nAll rights reserved\nhttp://blog.mikeswanson.com/");
+			aboutPluginsHelper.PopAboutBox(message, "Ai->Canvas Export Plug-In 1.7 (PC/64)", "Copyright 2010-2022 Mike Swanson\nAll rights reserved\nhttp://blog.mikeswanson.com/");
 		#else
-			aboutPluginsHelper.PopAboutBox(message, "Ai->Canvas Export Plug-In 1.6 (PC/32)", "Copyright 2010-2021 Mike Swanson\nAll rights reserved\nhttp://blog.mikeswanson.com/");
+			aboutPluginsHelper.PopAboutBox(message, "Ai->Canvas Export Plug-In 1.7 (PC/32)", "Copyright 2010-2022 Mike Swanson\nAll rights reserved\nhttp://blog.mikeswanson.com/");
 		#endif
 		#endif 
 	}	
