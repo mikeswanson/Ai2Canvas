@@ -456,7 +456,6 @@
 				CURRENT_PROJECT_VERSION = 1.7;
 				DEVELOPMENT_TEAM = 2C8GQ57YVR;
 				MARKETING_VERSION = 1.7;
-				OTHER_CFLAGS = "";
 				REZ_SEARCH_PATHS = ./../common/mac;
 			};
 			name = debug;
@@ -468,7 +467,6 @@
 				CURRENT_PROJECT_VERSION = 1.7;
 				DEVELOPMENT_TEAM = 2C8GQ57YVR;
 				MARKETING_VERSION = 1.7;
-				OTHER_CFLAGS = "";
 				REZ_SEARCH_PATHS = ./../common/mac;
 			};
 			name = release;
