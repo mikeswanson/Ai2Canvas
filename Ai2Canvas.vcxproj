@@ -208,7 +208,7 @@
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
     <PreBuildEvent>
-      <Command>python ..\..\tools\pipl\create_pipl.py -input "[{\"name\":\"Ai2Canvas64\",\"entry_point\" : \"PluginMain\"}]"</Command>
+      <Command>python ..\..\tools\pipl\create_pipl.py -input "[{\"name\":\"$(ProjectName)$(PlatformArchitecture)\",\"entry_point\" : \"PluginMain\"}]"</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -320,7 +320,7 @@
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
     <PreBuildEvent>
-      <Command>python ..\..\tools\pipl\create_pipl.py -input "[{\"name\":\"Ai2Canvas64\",\"entry_point\" : \"PluginMain\"}]"</Command>
+      <Command>python ..\..\tools\pipl\create_pipl.py -input "[{\"name\":\"$(ProjectName)$(PlatformArchitecture)\",\"entry_point\" : \"PluginMain\"}]"</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
