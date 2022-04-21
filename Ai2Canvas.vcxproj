@@ -207,6 +207,9 @@
       <TargetMachine>MachineX64</TargetMachine>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
+    <PreBuildEvent>
+      <Command>python ..\..\tools\pipl\create_pipl.py -input "[{\"name\":\"Ai2Canvas64\",\"entry_point\" : \"PluginMain\"}]"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Midl>
@@ -316,6 +319,9 @@
       <TargetMachine>MachineX64</TargetMachine>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
+    <PreBuildEvent>
+      <Command>python ..\..\tools\pipl\create_pipl.py -input "[{\"name\":\"Ai2Canvas64\",\"entry_point\" : \"PluginMain\"}]"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Resources\resource.h" />
