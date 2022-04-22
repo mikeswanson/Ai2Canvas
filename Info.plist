@@ -9,9 +9,9 @@
 	<key>CFBundleExecutable</key>
 	<string>$(PROJECTNAME)</string>
 	<key>CFBundleGetInfoHTML</key>
-	<string>Ai-&gt;Canvas Export Plug-In 1.6, Copyright 2010-2021 Mike Swanson. All rights reserved.</string>
+	<string>Ai-&gt;Canvas Export Plug-In $(MARKETING_VERSION), Copyright 2010-2022 Mike Swanson. All rights reserved.</string>
 	<key>CFBundleGetInfoString</key>
-	<string>Ai-&gt;Canvas Export Plug-In 1.6, Copyright 2010-2021 Mike Swanson. All rights reserved.</string>
+	<string>Ai-&gt;Canvas Export Plug-In $(MARKETING_VERSION), Copyright 2010-2022 Mike Swanson. All rights reserved.</string>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>

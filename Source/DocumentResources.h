@@ -1,6 +1,6 @@
 // DocumentResources.h
 //
-// Copyright (c) 2010-2021 Mike Swanson (http://blog.mikeswanson.com)
+// Copyright (c) 2010-2022 Mike Swanson (http://blog.mikeswanson.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal

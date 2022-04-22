@@ -57,6 +57,9 @@
 		2AF5F8660CF5F6CF0091D961 /* IThrowException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5F8640CF5F6CF0091D961 /* IThrowException.cpp */; };
 		2AF5F86B0CF5F6F60091D961 /* IAIFilePath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5F8680CF5F6F60091D961 /* IAIFilePath.cpp */; };
 		2AF5F86C0CF5F6F60091D961 /* IAIUnicodeString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5F8690CF5F6F60091D961 /* IAIUnicodeString.cpp */; };
+		4C1467C6280BD56D00607F79 /* AIPluginRelease.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 4C1467C3280BD56D00607F79 /* AIPluginRelease.xcconfig */; };
+		4C1467C7280BD56D00607F79 /* AIPluginCommon.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 4C1467C4280BD56D00607F79 /* AIPluginCommon.xcconfig */; };
+		4C1467C8280BD56D00607F79 /* AIPluginDebug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 4C1467C5280BD56D00607F79 /* AIPluginDebug.xcconfig */; };
 		F938CB5A0B8B9D8D0039754D /* Ai2Canvas.r in Rez */ = {isa = PBXBuildFile; fileRef = F938CB590B8B9D8D0039754D /* Ai2Canvas.r */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +114,9 @@
 		2AF5F8640CF5F6CF0091D961 /* IThrowException.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = IThrowException.cpp; path = ../../illustratorapi/ate/IThrowException.cpp; sourceTree = SOURCE_ROOT; };
 		2AF5F8680CF5F6F60091D961 /* IAIFilePath.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = IAIFilePath.cpp; path = ../../illustratorapi/illustrator/IAIFilePath.cpp; sourceTree = SOURCE_ROOT; };
 		2AF5F8690CF5F6F60091D961 /* IAIUnicodeString.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = IAIUnicodeString.cpp; path = ../../illustratorapi/illustrator/IAIUnicodeString.cpp; sourceTree = SOURCE_ROOT; };
+		4C1467C3280BD56D00607F79 /* AIPluginRelease.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = AIPluginRelease.xcconfig; path = ../../common/mac/AIPluginRelease.xcconfig; sourceTree = "<group>"; };
+		4C1467C4280BD56D00607F79 /* AIPluginCommon.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = AIPluginCommon.xcconfig; path = ../../common/mac/AIPluginCommon.xcconfig; sourceTree = "<group>"; };
+		4C1467C5280BD56D00607F79 /* AIPluginDebug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = AIPluginDebug.xcconfig; path = ../../common/mac/AIPluginDebug.xcconfig; sourceTree = "<group>"; };
 		4CCC1D0023B0911300A766D3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6EE2BA530A40BB2600CC7CE2 /* Ai2CanvasMac.aip */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Ai2CanvasMac.aip; sourceTree = BUILT_PRODUCTS_DIR; };
 		F938CB590B8B9D8D0039754D /* Ai2Canvas.r */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.rez; name = Ai2Canvas.r; path = Resources/Ai2Canvas.r; sourceTree = "<group>"; };
@@ -128,9 +134,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C1467C2280BD54700607F79 /* xcconfigs */ = {
+			isa = PBXGroup;
+			children = (
+				4C1467C4280BD56D00607F79 /* AIPluginCommon.xcconfig */,
+				4C1467C5280BD56D00607F79 /* AIPluginDebug.xcconfig */,
+				4C1467C3280BD56D00607F79 /* AIPluginRelease.xcconfig */,
+			);
+			path = xcconfigs;
+			sourceTree = "<group>";
+		};
 		508817C209F0C9740071BF1A = {
 			isa = PBXGroup;
 			children = (
+				4C1467C2280BD54700607F79 /* xcconfigs */,
 				0982B17A1794C22900293AB1 /* ApplicationServices.framework */,
 				508817F509F0CAB50071BF1A /* Sources */,
 				6EE2BA590A40BDD300CC7CE2 /* Resources */,
@@ -282,7 +299,7 @@
 				LastUpgradeCheck = 1130;
 				TargetAttributes = {
 					508817D309F0C9AD0071BF1A = {
-						DevelopmentTeam = 62HQ8PU2TE;
+						DevelopmentTeam = 2C8GQ57YVR;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -292,7 +309,6 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				Base,
 				ja,
 				fr,
 				de,
@@ -313,6 +329,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C1467C7280BD56D00607F79 /* AIPluginCommon.xcconfig in Resources */,
+				4C1467C8280BD56D00607F79 /* AIPluginDebug.xcconfig in Resources */,
+				4C1467C6280BD56D00607F79 /* AIPluginRelease.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,7 +364,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "python ../../tools/pipl/create_pipl.py -input '[{\"name\":\"Ai2Canvas\"}]'\n";
+			shellScript = "python3 ../../tools/pipl/create_pipl.py -input '[{\"name\":\"Ai2Canvas\"}]'\n";
 		};
 		4CE90360263CBFA8003C7CAD /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -408,204 +427,46 @@
 /* Begin XCBuildConfiguration section */
 		508817C609F0C9740071BF1A /* debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C1467C4280BD56D00607F79 /* AIPluginCommon.xcconfig */;
 			buildSettings = {
-				AI_CONFIGURATION = debug;
-				AI_LOCALE = en_US;
-				AI_PLATFORM = xcode;
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
-				CONFIGURATION_BUILD_DIR = "./../output/mac/$(AI_CONFIGURATION)";
-				CONFIGURATION_TEMP_DIR = "$(PROJECT_TEMP_DIR)/Default";
-				COPY_PHASE_STRIP = YES;
-				DEAD_CODE_STRIPPING = YES;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DSTROOT = "/tmp/$(PROJECT_NAME).dst";
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				EXPORTED_SYMBOLS_FILE = "";
-				FRAMEWORK_SEARCH_PATHS = "$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)";
-				GCC_DEBUGGING_SYMBOLS = used;
-				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
-				GCC_INPUT_FILETYPE = sourcecode.cpp.cpp;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "./../common/includes/IllustratorSDK$(AI_CONFIGURATION).pch";
-				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNKNOWN_PRAGMAS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				GENERATE_PKGINFO_FILE = YES;
-				HEADER_SEARCH_PATHS = (
-					"./../../illustratorapi/**",
-					"/Developer/Headers/FlatCarbon/**",
-					"./**",
-					"./../common/**",
-				);
 				INFOPLIST_FILE = Info.plist;
-				INFOPLIST_PREPROCESS = YES;
-				LIBRARY_SEARCH_PATHS = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				OBJROOT = .;
-				ONLY_LINK_ESSENTIAL_SYMBOLS = YES;
-				OTHER_CODE_SIGN_FLAGS = "--timestamp";
-				OTHER_LDFLAGS = "";
-				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
-				PRESERVE_DEAD_CODE_INITS_AND_TERMS = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mikeswanson.Ai2Canvas;
 				PRODUCT_NAME = Ai2CanvasMac;
-				PROJECTNAME = Ai2CanvasMac;
-				REZ_SEARCH_PATHS = "";
-				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
-				SDKROOT = macosx;
-				SEPARATE_STRIP = NO;
-				SHARED_PRECOMPS_DIR = "./../output/mac/sharedprecompiledheaders/$(AI_CONFIGURATION)";
-				SKIP_INSTALL = NO;
-				STRIP_INSTALLED_PRODUCT = YES;
-				STRIP_STYLE = "non-global";
-				SYMROOT = "./../output/mac/$(AI_CONFIGURATION)";
-				VALID_ARCHS = "i386 x86_64";
-				WARNING_CFLAGS = "-Wno-multichar";
-				WRAPPER_EXTENSION = aip;
-				ZERO_LINK = NO;
 			};
 			name = debug;
 		};
 		508817C709F0C9740071BF1A /* release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C1467C4280BD56D00607F79 /* AIPluginCommon.xcconfig */;
 			buildSettings = {
-				AI_CONFIGURATION = release;
-				AI_LOCALE = en_US;
-				AI_PLATFORM = xcode;
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
-				CONFIGURATION_BUILD_DIR = "./../output/mac/$(AI_CONFIGURATION)";
-				CONFIGURATION_TEMP_DIR = "$(PROJECT_TEMP_DIR)/Default";
-				COPY_PHASE_STRIP = YES;
-				DEAD_CODE_STRIPPING = YES;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DSTROOT = "/tmp/$(PROJECT_NAME).dst";
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				EXPORTED_SYMBOLS_FILE = "";
-				FRAMEWORK_SEARCH_PATHS = "$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)";
-				GCC_DEBUGGING_SYMBOLS = used;
-				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
-				GCC_INPUT_FILETYPE = sourcecode.cpp.cpp;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 3;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "./../common/includes/IllustratorSDK$(AI_CONFIGURATION).pch";
-				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNKNOWN_PRAGMAS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				GENERATE_PKGINFO_FILE = YES;
-				HEADER_SEARCH_PATHS = (
-					"./../../illustratorapi/**",
-					"/Developer/Headers/FlatCarbon/**",
-					"./**",
-					"./../common/**",
-				);
 				INFOPLIST_FILE = Info.plist;
-				INFOPLIST_PREPROCESS = YES;
-				LIBRARY_SEARCH_PATHS = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				OBJROOT = .;
-				ONLY_LINK_ESSENTIAL_SYMBOLS = YES;
-				OTHER_CODE_SIGN_FLAGS = "--timestamp";
-				OTHER_LDFLAGS = "";
-				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
-				PRESERVE_DEAD_CODE_INITS_AND_TERMS = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mikeswanson.Ai2Canvas;
 				PRODUCT_NAME = Ai2CanvasMac;
-				PROJECTNAME = Ai2CanvasMac;
-				REZ_SEARCH_PATHS = "";
-				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
-				SDKROOT = macosx;
-				SEPARATE_STRIP = NO;
-				SHARED_PRECOMPS_DIR = "./../output/mac/sharedprecompiledheaders/$(AI_CONFIGURATION)";
-				SKIP_INSTALL = NO;
-				STRIP_INSTALLED_PRODUCT = YES;
-				STRIP_STYLE = "non-global";
-				SYMROOT = "./../output/mac/$(AI_CONFIGURATION)";
-				VALID_ARCHS = "i386 x86_64";
-				WARNING_CFLAGS = "-Wno-multichar";
-				WRAPPER_EXTENSION = aip;
-				ZERO_LINK = NO;
 			};
 			name = release;
 		};
 		508817D809F0C9AE0071BF1A /* debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C1467C5280BD56D00607F79 /* AIPluginDebug.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CURRENT_PROJECT_VERSION = 0;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				MARKETING_VERSION = 1.6;
-				OTHER_CFLAGS = "";
+				CURRENT_PROJECT_VERSION = 1.7;
+				DEVELOPMENT_TEAM = 2C8GQ57YVR;
+				MARKETING_VERSION = 1.7;
 				REZ_SEARCH_PATHS = ./../common/mac;
 			};
 			name = debug;
 		};
 		508817D909F0C9AE0071BF1A /* release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C1467C3280BD56D00607F79 /* AIPluginRelease.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CURRENT_PROJECT_VERSION = 0;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				MARKETING_VERSION = 1.6;
-				OTHER_CFLAGS = "";
+				CURRENT_PROJECT_VERSION = 1.7;
+				DEVELOPMENT_TEAM = 2C8GQ57YVR;
+				MARKETING_VERSION = 1.7;
 				REZ_SEARCH_PATHS = ./../common/mac;
 			};
 			name = release;
