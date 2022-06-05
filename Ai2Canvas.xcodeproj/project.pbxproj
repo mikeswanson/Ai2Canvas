@@ -453,9 +453,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4C1467C5280BD56D00607F79 /* AIPluginDebug.xcconfig */;
 			buildSettings = {
-				CURRENT_PROJECT_VERSION = 1.7;
+				CURRENT_PROJECT_VERSION = 1.8;
 				DEVELOPMENT_TEAM = 2C8GQ57YVR;
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.8;
 				REZ_SEARCH_PATHS = ./../common/mac;
 			};
 			name = debug;
@@ -464,9 +464,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4C1467C3280BD56D00607F79 /* AIPluginRelease.xcconfig */;
 			buildSettings = {
-				CURRENT_PROJECT_VERSION = 1.7;
+				CURRENT_PROJECT_VERSION = 1.8;
 				DEVELOPMENT_TEAM = 2C8GQ57YVR;
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.8;
 				REZ_SEARCH_PATHS = ./../common/mac;
 			};
 			name = release;
